@@ -59,29 +59,27 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Brittany Chiang.</h2>;
-  const three = <h3 className="big-heading">I build things for the web.</h3>;
+  const one = <h1>Bonjour, je suis</h1>;
+  const two = <h2 className="big-heading">Enoal Fauchille.</h2>;
+  const three = <h3 className="medium-heading">Développeur Full-stack, Logiciel et DevOps.</h3>;
   const four = (
     <>
       <p>
-        I’m a software engineer specializing in building (and occasionally designing) exceptional
-        digital experiences. Currently, I’m focused on building accessible, human-centered products
-        at{' '}
-        <a href="https://upstatement.com/" target="_blank" rel="noreferrer">
-          Upstatement
-        </a>
-        .
+        Étudiant en 3ème année à Epitech Nantes, je conçois des solutions web et logicielles robustes.
+        {' '}
+        <strong style={{ color: 'var(--green)' }}>
+          À la recherche d'un stage de 4 mois (Avril - Juillet 2026)
+        </strong>
+        {' '}en tant que développeur Full-stack/DevOps.
       </p>
     </>
   );
   const five = (
     <a
       className="email-link"
-      href="https://www.newline.co/courses/build-a-spotify-connected-app"
-      target="_blank"
+      href="mailto:enoal.fauchille@gmail.com"
       rel="noreferrer">
-      Check out my course!
+      Contactez-moi
     </a>
   );
 

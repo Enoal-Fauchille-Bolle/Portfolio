@@ -125,43 +125,59 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  const skills = [
+    'TypeScript',
+    'JavaScript',
+    'React',
+    'Angular',
+    'Node.js',
+    'Express',
+    'NestJS',
+    'Python',
+    'Docker',
+    'Git',
+    'PostgreSQL',
+    'C/C++',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
-      <h2 className="numbered-heading">About Me</h2>
+      <h2 className="numbered-heading">À propos</h2>
 
       <div className="inner">
         <StyledText>
           <div>
             <p>
-              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+              Bonjour ! Je suis étudiant en 3ème année à{' '}
+              <a href="https://www.epitech.eu/" target="_blank" rel="noreferrer">
+                Epitech Nantes
+              </a>
+              {' '}(Promo 2028), en formation Expert en Informatique (RNCP Niveau 7).
+              Passionné par le développement web et logiciel, je conçois des solutions robustes
+              et modernes.
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
-              <a href="https://starry.com/">a start-up</a>,{' '}
-              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
-              clients.
+              J'ai eu l'opportunité de développer mes compétences lors de plusieurs expériences,
+              notamment chez{' '}
+              <a href="https://revolte.club/" target="_blank" rel="noreferrer">
+                Revolte E-garages
+              </a>
+              {' '}où j'ai contribué au développement d'une plateforme full-stack dédiée aux
+              garagistes. Je suis également impliqué dans des initiatives bénévoles comme{' '}
+              <a href="https://www.helloasso.com/associations/reso2d/" target="_blank" rel="noreferrer">
+                RESO2D
+              </a>
+              {' '}(Green IT) et le DevFest Nantes.
             </p>
 
             <p>
-              I also recently{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                launched a course
-              </a>{' '}
-              that covers everything you need to build a web app with the Spotify API using Node
-              &amp; React.
+              Mes soft skills : <strong>Rigoureux</strong>, <strong>Consciencieux</strong>,{' '}
+              <strong>Autonome</strong>, <strong>Curieux</strong>,{' '}
+              <strong>Créatif</strong>, et <strong>Collaboratif</strong>.
             </p>
 
-            <p>Here are a few technologies I’ve been working with recently:</p>
+            <p>Voici quelques technologies avec lesquelles je travaille actuellement :</p>
           </div>
 
           <ul className="skills-list">
@@ -177,7 +193,7 @@ const About = () => {
               width={500}
               quality={95}
               formats={['AUTO', 'WEBP', 'AVIF']}
-              alt="Headshot"
+              alt="Photo de profil Enoal Fauchille"
             />
           </div>
         </StyledPic>
