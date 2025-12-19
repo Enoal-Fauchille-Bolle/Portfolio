@@ -10,9 +10,9 @@ RUN apk add --no-cache python3 make g++
 COPY package*.json ./
 
 # Installation des dépendances avec les options nécessaires pour ce projet
-RUN npm install --legacy-peer-deps
+RUN npm ci --legacy-peer-deps
 
-# Copie du reste du projet
+# Copie du reste du projet (en excluant node_modules via .dockerignore)
 COPY . .
 
 # Configuration pour supporter l'ancien provider OpenSSL (nécessaire pour Gatsby v4 sur Node 17+)
