@@ -1,5 +1,6 @@
 ---
 date: '2024-04-13'
+order: 4
 title: 'Arcade - Plateforme de Jeux Rétro'
 cover: './demo.png'
 github: 'https://github.com/Enoal-Fauchille-Bolle/Arcade'
