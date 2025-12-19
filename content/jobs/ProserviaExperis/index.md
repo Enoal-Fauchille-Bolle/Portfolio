@@ -3,7 +3,7 @@ date: '2019-12-09'
 title: 'Stage Développeur Informatique'
 company: 'Proservia / Experis IT'
 location: 'Nantes, France'
-range: 'Décembre 2019'
+range: 'Décembre 2019 - 1 Semaine'
 url: 'https://www.proservia.fr/'
 ---
 

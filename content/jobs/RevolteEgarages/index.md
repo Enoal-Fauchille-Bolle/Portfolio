@@ -1,9 +1,9 @@
 ---
-date: '2024-12-16'
-title: 'Développeur Full-stack'
+date: '2025-09-15'
+title: 'Stage Développeur Full-stack'
 company: 'Revolte E-garages'
 location: 'Nantes, France'
-range: 'Juillet - Décembre 2024'
+range: 'Juillet - Décembre 2024 & Septembre 2025 - Février 2026'
 url: 'https://revolte.club/'
 ---
 
