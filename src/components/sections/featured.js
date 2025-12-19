@@ -39,7 +39,7 @@ const StyledProject = styled.li`
     }
   }
 
-  &:nth-of-type(odd) {
+  &:nth-of-type(even) {
     .project-content {
       grid-column: 7 / -1;
       text-align: right;
@@ -308,7 +308,7 @@ const Featured = () => {
     {
       featured: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/featured/" } }
-        sort: { fields: [frontmatter___date], order: ASC }
+        sort: { fields: [frontmatter___order], order: ASC }
       ) {
         edges {
           node {
