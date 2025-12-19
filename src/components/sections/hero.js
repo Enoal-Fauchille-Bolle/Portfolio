@@ -60,25 +60,22 @@ const Hero = () => {
   }, []);
 
   const one = <h1>Bonjour, je suis</h1>;
-  const two = <h2 className="big-heading">Enoal Fauchille.</h2>;
+  const two = <h2 className="big-heading">Enoal Fauchille--Bolle.</h2>;
   const three = <h3 className="medium-heading">Développeur Full-stack, Logiciel et DevOps.</h3>;
   const four = (
     <>
       <p>
-        Étudiant en 3ème année à Epitech Nantes, je conçois des solutions web et logicielles robustes.
-        {' '}
+        Étudiant en 3ème année à Epitech Nantes, je conçois des solutions web et logicielles
+        robustes.{' '}
         <strong style={{ color: 'var(--green)' }}>
           À la recherche d'un stage de 4 mois (Avril - Juillet 2026)
-        </strong>
-        {' '}en tant que développeur Full-stack/DevOps.
+        </strong>{' '}
+        en tant que développeur Full-stack/DevOps.
       </p>
     </>
   );
   const five = (
-    <a
-      className="email-link"
-      href="mailto:enoal.fauchille@gmail.com"
-      rel="noreferrer">
+    <a className="email-link" href="mailto:enoal.fauchille@gmail.com" rel="noreferrer">
       Contactez-moi
     </a>
   );

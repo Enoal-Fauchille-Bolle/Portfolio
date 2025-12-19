@@ -2,9 +2,9 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Enoal Fauchille',
+    title: 'Enoal Fauchille--Bolle',
     description:
-      'Enoal Fauchille est un étudiant développeur Full-stack, Logiciel et DevOps à Epitech Nantes. À la recherche d\'un stage de 4 mois (Avril - Juillet 2026).',
+      'Enoal Fauchille--Bolle est un étudiant développeur Full-stack, Logiciel et DevOps à Epitech Nantes. À la recherche d\'un stage de 4 mois (Avril - Juillet 2026).',
     siteUrl: 'https://enoal.fr', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '',
@@ -20,8 +20,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Enoal Fauchille - Développeur Full-stack',
-        short_name: 'Enoal Fauchille',
+        name: 'Enoal Fauchille--Bolle - Développeur Full-stack',
+        short_name: 'Enoal Fauchille--Bolle',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,

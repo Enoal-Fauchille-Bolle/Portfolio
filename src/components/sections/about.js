@@ -151,10 +151,9 @@ const About = () => {
               Bonjour ! Je suis étudiant en 3ème année à{' '}
               <a href="https://www.epitech.eu/" target="_blank" rel="noreferrer">
                 Epitech Nantes
-              </a>
-              {' '}(Promo 2028), en formation Expert en Informatique (RNCP Niveau 7).
-              Passionné par le développement web et logiciel, je conçois des solutions robustes
-              et modernes.
+              </a>{' '}
+              (Promo 2028), en formation Expert en Informatique (RNCP Niveau 7). Passionné par le
+              développement web et logiciel, je conçois des solutions robustes et modernes.
             </p>
 
             <p>
@@ -162,19 +161,22 @@ const About = () => {
               notamment chez{' '}
               <a href="https://revolte.club/" target="_blank" rel="noreferrer">
                 Revolte E-garages
-              </a>
-              {' '}où j'ai contribué au développement d'une plateforme full-stack dédiée aux
-              garagistes. Je suis également impliqué dans des initiatives bénévoles comme{' '}
-              <a href="https://www.helloasso.com/associations/reso2d/" target="_blank" rel="noreferrer">
+              </a>{' '}
+              où j'ai contribué au développement d'une plateforme full-stack dédiée aux garagistes.
+              Je suis également impliqué dans des initiatives bénévoles comme{' '}
+              <a
+                href="https://www.helloasso.com/associations/reso2d/"
+                target="_blank"
+                rel="noreferrer">
                 RESO2D
-              </a>
-              {' '}(Green IT) et le DevFest Nantes.
+              </a>{' '}
+              (Green IT) et le DevFest Nantes.
             </p>
 
             <p>
               Mes soft skills : <strong>Rigoureux</strong>, <strong>Consciencieux</strong>,{' '}
-              <strong>Autonome</strong>, <strong>Curieux</strong>,{' '}
-              <strong>Créatif</strong>, et <strong>Collaboratif</strong>.
+              <strong>Autonome</strong>, <strong>Curieux</strong>, <strong>Créatif</strong>, et{' '}
+              <strong>Collaboratif</strong>.
             </p>
 
             <p>Voici quelques technologies avec lesquelles je travaille actuellement :</p>
@@ -193,7 +195,7 @@ const About = () => {
               width={500}
               quality={95}
               formats={['AUTO', 'WEBP', 'AVIF']}
-              alt="Photo de profil Enoal Fauchille"
+              alt="Photo de profil Enoal Fauchille--Bolle"
             />
           </div>
         </StyledPic>

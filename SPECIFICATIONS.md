@@ -16,7 +16,7 @@ The content must be in **FRENCH**.
 
 ### A. Hero Section (Priority #1)
 
-- **Headline:** "Bonjour, je suis Enoal Fauchille."
+- **Headline:** "Bonjour, je suis Enoal Fauchille--Bolle."
 - **Sub-headline:** "Développeur Full-stack, Logiciel et DevOps."
 - **Call to Action (CTA):** Explicitly state: **"À la recherche d'un stage de 4 mois (Avril - Juillet 2026)"**.
 - **Brief:** "Étudiant en 3ème année à Epitech Nantes, je conçois des solutions web et logicielles robustes."
@@ -41,19 +41,22 @@ The content must be in **FRENCH**.
 
 ### E. Featured Projects (Source: GitHub)
 
-*Generate `featured` content files for these 4 key projects:*
+_Generate `featured` content files for these 4 key projects:_
 
 1. **AREA - Automation Platform**
+
    - **Stack:** TypeScript, React, NestJS, Postgres, Docker.
    - **Description:** Une plateforme d'automatisation de type IFTTT/Zapier. Connecte des services via API REST, clients web et mobiles.
    - **Link:** <https://github.com/Enoal-Fauchille-Bolle/AREA>
 
 2. **Zappy - Jeu Stratégie IA**
+
    - **Stack:** C, C++, Python, Makefile.
    - **Description:** Jeu multijoueur en réseau (client-serveur) de gestion de ressources et stratégie IA. Comprend un serveur en C, un client GUI et des clients IA.
    - **Link:** <https://github.com/Enoal-Fauchille-Bolle/Zappy>
 
 3. **Arcade - Retro Gaming**
+
    - **Stack:** C++, SFML, SDL, Ncurses, Dynamic Libraries.
    - **Description:** Plateforme de jeu rétro modulaire. Charge dynamiquement des bibliothèques de jeux (Pacman, Snake) et de graphismes.
    - **Link:** <https://github.com/Enoal-Fauchille-Bolle/Arcade>

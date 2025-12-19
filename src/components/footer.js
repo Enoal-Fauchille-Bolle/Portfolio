@@ -84,13 +84,9 @@ const Footer = () => (
 
     <StyledCredit tabindex="-1">
       <div>
-        <a href="https://github.com/bchiang7/v4">
-          Design original par Brittany Chiang
-        </a>
+        <a href="https://github.com/bchiang7/v4">Design original par Brittany Chiang</a>
       </div>
-      <div style={{ marginTop: '5px' }}>
-        Refactorisé par Enoal Fauchille
-      </div>
+      <div style={{ marginTop: '5px' }}>Refactorisé par Enoal Fauchille--Bolle</div>
     </StyledCredit>
   </StyledFooter>
 );
