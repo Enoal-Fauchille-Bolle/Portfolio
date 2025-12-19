@@ -18,7 +18,7 @@ const StyledProjectsSection = styled.section`
 
   .archive-link {
     font-family: var(--font-mono);
-    font-size: var(--fz-sm);
+    font-size: var(--fz-md);
     &:after {
       bottom: 0.1em;
     }
