@@ -268,7 +268,7 @@ const Projects = () => {
       <h2 ref={revealTitle}>Autres Projets</h2>
 
       <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
-        voir les archives
+        Voir les archives
       </Link>
 
       <ul className="projects-grid">

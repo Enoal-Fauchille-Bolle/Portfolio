@@ -14,15 +14,15 @@ module.exports = {
 
   navLinks: [
     {
-      name: 'About',
+      name: 'À propos',
       url: '/#about',
     },
     {
-      name: 'Experience',
+      name: 'Expérience',
       url: '/#jobs',
     },
     {
-      name: 'Work',
+      name: 'Travail',
       url: '/#projects',
     },
     {
