@@ -4,7 +4,7 @@ title: 'Bénévole Green IT & RSE'
 company: 'Association RESO2D'
 location: 'Nantes, France'
 range: 'Juin 2022'
-url: 'https://www.helloasso.com/associations/reso2d/'
+url: 'https://greenmyevent.fr/fr/home/about'
 ---
 
 - Contribution bénévole aux projets Green IT et RSE
