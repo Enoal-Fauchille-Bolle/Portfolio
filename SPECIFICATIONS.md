@@ -18,7 +18,6 @@ The content must be in **FRENCH**.
 
 - **Headline:** "Bonjour, je suis Enoal Fauchille--Bolle."
 - **Sub-headline:** "Développeur Full-stack, Logiciel et DevOps."
-- **Call to Action (CTA):** Explicitly state: **"À la recherche d'un stage de 4 mois (Avril - Juillet 2026)"**.
 - **Brief:** "Étudiant en 3ème année à Epitech Nantes, je conçois des solutions web et logicielles robustes."
 
 ### B. About Section

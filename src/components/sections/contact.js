@@ -59,11 +59,6 @@ const Contact = () => {
 
       <h2 className="title">Contactez-moi</h2>
 
-      <p>
-        Je suis actuellement <strong>à la recherche d'un stage de 4 mois (Avril - Juillet 2026)</strong> en tant que développeur Full-stack/DevOps.
-        N'hésitez pas à me contacter si vous avez une opportunité, une question ou simplement pour échanger !
-      </p>
-
       <a className="email-link" href={`mailto:${email}`}>
         Écrivez-moi
       </a>

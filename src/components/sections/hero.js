@@ -66,11 +66,7 @@ const Hero = () => {
     <>
       <p>
         Étudiant en 3ème année à Epitech Nantes, je conçois des solutions web et logicielles
-        robustes.{' '}
-        <strong style={{ color: 'var(--green)' }}>
-          À la recherche d'un stage de 4 mois (Avril - Juillet 2026)
-        </strong>{' '}
-        en tant que développeur Full-stack/DevOps.
+        robustes.
       </p>
     </>
   );

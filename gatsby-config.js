@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Enoal Fauchille--Bolle',
     description:
-      'Enoal Fauchille--Bolle est un étudiant développeur Full-stack, Logiciel et DevOps à Epitech Nantes. À la recherche d\'un stage de 4 mois (Avril - Juillet 2026).',
+      'Enoal Fauchille--Bolle est un étudiant développeur Full-stack, Logiciel et DevOps à Epitech Nantes.',
     siteUrl: 'https://enoal.fr', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '',
