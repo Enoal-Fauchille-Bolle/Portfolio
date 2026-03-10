@@ -1,6 +1,6 @@
 ---
 date: '2025-06-29'
-order: 2
+order: 3
 title: 'Zappy - Jeu Stratégie IA'
 cover: './demo.png'
 github: 'https://github.com/Enoal-Fauchille-Bolle/Zappy'
