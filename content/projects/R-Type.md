@@ -1,5 +1,5 @@
 ---
-date: '2025-09-15'
+date: '2026-01-18'
 title: 'R-Type'
 company: 'Epitech'
 github: 'https://github.com/MatthieuGA/R_TYPE_J.A.M.E.S.'

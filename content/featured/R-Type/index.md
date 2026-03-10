@@ -1,5 +1,5 @@
 ---
-date: '2025-09-15'
+date: '2026-01-18'
 order: 2
 title: 'R-Type - Jeu Vidéo'
 cover: './demo.png'
