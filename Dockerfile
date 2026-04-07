@@ -3,8 +3,18 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
-# Installation des dépendances système nécessaires pour la compilation (Python, Make, G++)
-RUN apk add --no-cache python3 make g++
+# Installation des dépendances système nécessaires pour la compilation des modules natifs
+RUN apk add --no-cache \
+	python3 \
+	make \
+	g++ \
+	autoconf \
+	automake \
+	libtool \
+	nasm \
+	pkgconf \
+	zlib-dev \
+	libpng-dev
 
 # Copie des fichiers de dépendances
 COPY package*.json ./
