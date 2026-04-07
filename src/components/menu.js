@@ -266,7 +266,11 @@ const Menu = () => {
               </ol>
             )}
 
-            <a href="/resume.pdf" className="resume-link">
+            <a
+              href="https://cv.enoal.fr"
+              className="resume-link"
+              target="_blank"
+              rel="noopener noreferrer">
               Curriculum Vitae
             </a>
           </nav>
