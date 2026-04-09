@@ -10,6 +10,10 @@ module.exports = {
       name: 'Linkedin',
       url: 'https://www.linkedin.com/in/enoal-fauchille',
     },
+    {
+      name: 'Discord',
+      url: 'https://discord.com/users/1418136273209528371',
+    },
   ],
 
   navLinks: [
