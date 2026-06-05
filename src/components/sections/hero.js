@@ -71,7 +71,7 @@ const Hero = () => {
     </>
   );
   const five = (
-    <a className="email-link" href="mailto:enoal.fauchille@gmail.com" rel="noreferrer">
+    <a className="email-link" href="mailto:contact@enoal.fr" rel="noreferrer">
       Contactez-moi
     </a>
   );

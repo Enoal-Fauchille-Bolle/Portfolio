@@ -67,7 +67,7 @@ _Generate `featured` content files for these 4 key projects:_
 
 ### F. Contact Section
 
-- **Email:** <enoal.fauchille@gmail.com>
+- **Email:** <contact@enoal.fr>
 - **LinkedIn:** /in/enoal-fauchille
 - **Location:** Nantes, France.
 - **GitHub:** <https://github.com/Enoal-Fauchille-Bolle>
