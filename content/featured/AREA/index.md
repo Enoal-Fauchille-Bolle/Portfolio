@@ -1,6 +1,6 @@
 ---
 date: '2025-11-02'
-order: 1
+order: 2
 title: "AREA - Plateforme d'Automatisation"
 cover: './demo.png'
 github: 'https://github.com/Enoal-Fauchille-Bolle/AREA'
