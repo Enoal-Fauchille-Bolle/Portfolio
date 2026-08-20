@@ -59,6 +59,8 @@ const Contact = () => {
 
       <h2 className="title">Contactez-moi</h2>
 
+      <p>Je serai en recherche de stage pour ma 5ème année à partir de septembre 2027.</p>
+
       <a
         className="email-link"
         href={`mailto:${email}`}
