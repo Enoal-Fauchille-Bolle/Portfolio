@@ -1,6 +1,6 @@
 ---
 date: '2026-01-18'
-order: 3
+order: 4
 title: 'R-Type - Jeu Vidéo'
 cover: './demo.png'
 github: 'https://github.com/MatthieuGA/R_TYPE_J.A.M.E.S.'

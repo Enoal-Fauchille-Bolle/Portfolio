@@ -1,6 +1,6 @@
 ---
 date: '2024-01-01'
-order: 1
+order: 2
 title: 'Astra-ops — Homelab GitOps'
 cover: './demo.png'
 github: 'https://github.com/Enoal-Fauchille-Bolle/Astra-ops'
