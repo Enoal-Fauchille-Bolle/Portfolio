@@ -74,7 +74,12 @@ const Footer = () => (
         {socialMedia &&
           socialMedia.map(({ name, url }, i) => (
             <li key={i}>
-              <a href={url} aria-label={name}>
+              <a
+                href={url}
+                aria-label={name}
+                data-umami-event="contact-click"
+                data-umami-event-channel={name}
+                data-umami-event-source="footer">
                 <Icon name={name} />
               </a>
             </li>

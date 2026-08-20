@@ -210,7 +210,9 @@ const Nav = ({ isHome }) => {
       className="resume-button"
       href="https://cv.enoal.fr"
       target="_blank"
-      rel="noopener noreferrer">
+      rel="noopener noreferrer"
+      data-umami-event="cv-click"
+      data-umami-event-source="nav">
       Curriculum Vitae
     </a>
   );

@@ -38,7 +38,13 @@ const StyledLinkWrapper = styled.div`
 const Email = ({ isHome }) => (
   <Side isHome={isHome} orientation="right">
     <StyledLinkWrapper>
-      <a href={`mailto:${email}`}>{email}</a>
+      <a
+        href={`mailto:${email}`}
+        data-umami-event="contact-click"
+        data-umami-event-channel="email"
+        data-umami-event-source="side">
+        {email}
+      </a>
     </StyledLinkWrapper>
   </Side>
 );

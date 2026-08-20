@@ -224,7 +224,15 @@ const Projects = () => {
             </div>
             <div className="project-links">
               {github && (
-                <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
+                <a
+                  href={github}
+                  aria-label="GitHub Link"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-umami-event="project-click"
+                  data-umami-event-project={title}
+                  data-umami-event-section="projects"
+                  data-umami-event-target="github">
                   <Icon name="GitHub" />
                 </a>
               )}
@@ -234,7 +242,11 @@ const Projects = () => {
                   aria-label="External Link"
                   className="external"
                   target="_blank"
-                  rel="noreferrer">
+                  rel="noreferrer"
+                  data-umami-event="project-click"
+                  data-umami-event-project={title}
+                  data-umami-event-section="projects"
+                  data-umami-event-target="external">
                   <Icon name="External" />
                 </a>
               )}
@@ -242,7 +254,14 @@ const Projects = () => {
           </div>
 
           <h3 className="project-title">
-            <a href={external || github} target="_blank" rel="noreferrer">
+            <a
+              href={external || github}
+              target="_blank"
+              rel="noreferrer"
+              data-umami-event="project-click"
+              data-umami-event-project={title}
+              data-umami-event-section="projects"
+              data-umami-event-target="title">
               {title}
             </a>
           </h3>

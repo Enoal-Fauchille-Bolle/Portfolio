@@ -365,7 +365,14 @@ const Featured = () => {
                     <p className="project-overline">Projet en Vedette</p>
 
                     <h3 className="project-title">
-                      <a href={external}>{title}</a>
+                      <a
+                        href={external}
+                        data-umami-event="project-click"
+                        data-umami-event-project={title}
+                        data-umami-event-section="featured"
+                        data-umami-event-target="title">
+                        {title}
+                      </a>
                     </h3>
 
                     <div
@@ -383,17 +390,37 @@ const Featured = () => {
 
                     <div className="project-links">
                       {cta && (
-                        <a href={cta} aria-label="Lien du cours" className="cta">
+                        <a
+                          href={cta}
+                          aria-label="Lien du cours"
+                          className="cta"
+                          data-umami-event="project-click"
+                          data-umami-event-project={title}
+                          data-umami-event-section="featured"
+                          data-umami-event-target="cta">
                           En savoir plus
                         </a>
                       )}
                       {github && (
-                        <a href={github} aria-label="Lien GitHub">
+                        <a
+                          href={github}
+                          aria-label="Lien GitHub"
+                          data-umami-event="project-click"
+                          data-umami-event-project={title}
+                          data-umami-event-section="featured"
+                          data-umami-event-target="github">
                           <Icon name="GitHub" />
                         </a>
                       )}
                       {external && !cta && (
-                        <a href={external} aria-label="Lien externe" className="external">
+                        <a
+                          href={external}
+                          aria-label="Lien externe"
+                          className="external"
+                          data-umami-event="project-click"
+                          data-umami-event-project={title}
+                          data-umami-event-section="featured"
+                          data-umami-event-target="external">
                           <Icon name="External" />
                         </a>
                       )}
@@ -402,7 +429,12 @@ const Featured = () => {
                 </div>
 
                 <div className="project-image">
-                  <a href={external ? external : github ? github : '#'}>
+                  <a
+                    href={external ? external : github ? github : '#'}
+                    data-umami-event="project-click"
+                    data-umami-event-project={title}
+                    data-umami-event-section="featured"
+                    data-umami-event-target="cover">
                     <GatsbyImage image={image} alt={title} className="img" />
                   </a>
                 </div>

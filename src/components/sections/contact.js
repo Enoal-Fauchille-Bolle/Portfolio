@@ -59,7 +59,12 @@ const Contact = () => {
 
       <h2 className="title">Contactez-moi</h2>
 
-      <a className="email-link" href={`mailto:${email}`}>
+      <a
+        className="email-link"
+        href={`mailto:${email}`}
+        data-umami-event="contact-click"
+        data-umami-event-channel="email"
+        data-umami-event-source="contact-section">
         Écrivez-moi
       </a>
     </StyledContactSection>

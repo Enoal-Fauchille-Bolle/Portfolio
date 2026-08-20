@@ -28,6 +28,16 @@ COPY . .
 # Configuration pour supporter l'ancien provider OpenSSL (nécessaire pour Gatsby v4 sur Node 17+)
 ENV NODE_OPTIONS=--openssl-legacy-provider
 
+# Analytics Umami : Gatsby inline les variables GATSBY_* dans les fichiers statiques
+# au moment du build, elles ne sont donc pas lisibles au démarrage du conteneur.
+# Sans valeur, le script de suivi n'est tout simplement pas injecté.
+ARG GATSBY_UMAMI_WEBSITE_ID=""
+ARG GATSBY_UMAMI_DOMAINS=""
+ARG GATSBY_UMAMI_HOST_URL=""
+ENV GATSBY_UMAMI_WEBSITE_ID=$GATSBY_UMAMI_WEBSITE_ID
+ENV GATSBY_UMAMI_DOMAINS=$GATSBY_UMAMI_DOMAINS
+ENV GATSBY_UMAMI_HOST_URL=$GATSBY_UMAMI_HOST_URL
+
 # Construction du site statique (génère le dossier /public)
 RUN npm run build
 

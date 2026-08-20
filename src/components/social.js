@@ -49,7 +49,14 @@ const Social = ({ isHome }) => (
       {socialMedia &&
         socialMedia.map(({ url, name }, i) => (
           <li key={i}>
-            <a href={url} aria-label={name} target="_blank" rel="noreferrer">
+            <a
+              href={url}
+              aria-label={name}
+              target="_blank"
+              rel="noreferrer"
+              data-umami-event="contact-click"
+              data-umami-event-channel={name}
+              data-umami-event-source="side">
               <Icon name={name} />
             </a>
           </li>
