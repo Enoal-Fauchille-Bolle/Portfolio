@@ -17,7 +17,7 @@ tech:
   - Nginx
   - Cloudflare
   - Renovate
-showInProjects: true
+showInProjects: false
 ---
 
 🏠 Homelab personnel auto-hébergé sur Proxmox VE, orchestré avec K3s et déployé en GitOps via ArgoCD. Héberge plus de 30 services (Immich, Vaultwarden, n8n, SFTPGo…) avec une stratégie de sauvegarde multicouche, un reverse proxy SSL, et des mises à jour automatisées via Renovate.
