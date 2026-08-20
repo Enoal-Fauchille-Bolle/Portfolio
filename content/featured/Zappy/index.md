@@ -1,5 +1,5 @@
 ---
-date: '2025-06-29'
+date: '2025-05-26'
 order: 5
 title: 'Zappy - Jeu Stratégie IA'
 cover: './demo.png'

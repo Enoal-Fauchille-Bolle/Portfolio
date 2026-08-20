@@ -1,5 +1,5 @@
 ---
-date: '2024-04-13'
+date: '2025-03-17'
 order: 7
 title: 'Arcade - Plateforme de Jeux Rétro'
 cover: './demo.png'
