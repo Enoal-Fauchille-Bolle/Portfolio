@@ -1,5 +1,5 @@
 ---
-date: '2025-09-15'
+date: '2025-11-02'
 title: 'AREA'
 company: 'Epitech'
 github: 'https://github.com/Enoal-Fauchille-Bolle/AREA'
