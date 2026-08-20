@@ -129,15 +129,17 @@ const About = () => {
     'TypeScript',
     'JavaScript',
     'React',
-    'Angular',
     'Node.js',
-    'Express',
     'NestJS',
+    'Express',
     'Python',
-    'Docker',
-    'Git',
-    'PostgreSQL',
+    'Rust',
     'C/C++',
+    'Git',
+    'Docker',
+    'Kubernetes',
+    'Ansible',
+    'PostgreSQL',
   ];
 
   return (
