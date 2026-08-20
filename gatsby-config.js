@@ -7,7 +7,6 @@ module.exports = {
       'Enoal Fauchille--Bolle est un étudiant développeur Full-stack, DevOps et Logiciel à Epitech Nantes.',
     siteUrl: 'https://enoal.fr', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
