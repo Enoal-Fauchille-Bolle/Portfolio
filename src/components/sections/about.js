@@ -148,7 +148,7 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Bonjour ! Je suis étudiant en 3ème année à{' '}
+              Bonjour ! Je suis étudiant en 4ème année à{' '}
               <a
                 href="https://www.epitech.eu/"
                 target="_blank"
@@ -159,7 +159,21 @@ const About = () => {
                 Epitech Nantes
               </a>{' '}
               (Promo 2028), en formation Expert en Informatique (RNCP Niveau 7). Passionné par le
-              développement web et logiciel, je conçois des solutions robustes et modernes.
+              développement web, DevOps et logiciel, je conçois des solutions robustes et modernes.
+            </p>
+
+            <p>
+              Je passe l'année universitaire 2026-2027 en échange à{' '}
+              <a
+                href="https://ruc.dk/en"
+                target="_blank"
+                rel="noreferrer"
+                data-umami-event="outbound-click"
+                data-umami-event-destination="roskilde-university"
+                data-umami-event-source="about">
+                Roskilde University
+              </a>{' '}
+              au Danemark, dans le programme Master en Computer Science.
             </p>
 
             <p>

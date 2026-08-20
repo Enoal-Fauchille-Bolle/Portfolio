@@ -65,8 +65,17 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        Étudiant en 3ème année à Epitech Nantes, je conçois des solutions web et logicielles
-        robustes.
+        Étudiant en 4ème année à Epitech Nantes, actuellement en échange à{' '}
+        <a
+          href="https://ruc.dk/en"
+          target="_blank"
+          rel="noreferrer"
+          data-umami-event="outbound-click"
+          data-umami-event-destination="roskilde-university"
+          data-umami-event-source="hero">
+          Roskilde University
+        </a>{' '}
+        au Danemark, je conçois des solutions web, DevOps et logicielles robustes.
       </p>
     </>
   );
