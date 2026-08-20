@@ -2,7 +2,7 @@
 date: '2024-07-22'
 title: 'Stage Développeur Full-stack'
 company: 'Revolte E-garages (2024)'
-location: 'Nantes, France'
+location: 'Carquefou, France'
 range: 'Juillet - Décembre 2024'
 url: 'https://revolte.club/'
 ---
