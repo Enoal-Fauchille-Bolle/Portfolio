@@ -204,22 +204,46 @@ const ArchivePage = ({ location, data }) => {
                       <td className="links">
                         <div>
                           {external && (
-                            <a href={external} aria-label="External Link">
+                            <a
+                              href={external}
+                              aria-label="External Link"
+                              data-umami-event="project-click"
+                              data-umami-event-project={title}
+                              data-umami-event-section="archive"
+                              data-umami-event-target="external">
                               <Icon name="External" />
                             </a>
                           )}
                           {github && (
-                            <a href={github} aria-label="GitHub Link">
+                            <a
+                              href={github}
+                              aria-label="GitHub Link"
+                              data-umami-event="project-click"
+                              data-umami-event-project={title}
+                              data-umami-event-section="archive"
+                              data-umami-event-target="github">
                               <Icon name="GitHub" />
                             </a>
                           )}
                           {ios && (
-                            <a href={ios} aria-label="Apple App Store Link">
+                            <a
+                              href={ios}
+                              aria-label="Apple App Store Link"
+                              data-umami-event="project-click"
+                              data-umami-event-project={title}
+                              data-umami-event-section="archive"
+                              data-umami-event-target="ios">
                               <Icon name="AppStore" />
                             </a>
                           )}
                           {android && (
-                            <a href={android} aria-label="Google Play Store Link">
+                            <a
+                              href={android}
+                              aria-label="Google Play Store Link"
+                              data-umami-event="project-click"
+                              data-umami-event-project={title}
+                              data-umami-event-section="archive"
+                              data-umami-event-target="android">
                               <Icon name="PlayStore" />
                             </a>
                           )}

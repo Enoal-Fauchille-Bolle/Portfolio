@@ -261,7 +261,10 @@ const Jobs = () => {
                   role="tab"
                   tabIndex={activeTabId === i ? '0' : '-1'}
                   aria-selected={activeTabId === i ? true : false}
-                  aria-controls={`panel-${i}`}>
+                  aria-controls={`panel-${i}`}
+                  data-umami-event="job-click"
+                  data-umami-event-company={company}
+                  data-umami-event-target="tab">
                   <span>{company}</span>
                 </StyledTabButton>
               );
@@ -288,7 +291,12 @@ const Jobs = () => {
                       <span>{title}</span>
                       <span className="company">
                         &nbsp;@&nbsp;
-                        <a href={url} className="inline-link">
+                        <a
+                          href={url}
+                          className="inline-link"
+                          data-umami-event="job-click"
+                          data-umami-event-company={company}
+                          data-umami-event-target="company-link">
                           {company}
                         </a>
                       </span>

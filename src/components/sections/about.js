@@ -149,7 +149,13 @@ const About = () => {
           <div>
             <p>
               Bonjour ! Je suis étudiant en 3ème année à{' '}
-              <a href="https://www.epitech.eu/" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.epitech.eu/"
+                target="_blank"
+                rel="noreferrer"
+                data-umami-event="outbound-click"
+                data-umami-event-destination="epitech"
+                data-umami-event-source="about">
                 Epitech Nantes
               </a>{' '}
               (Promo 2028), en formation Expert en Informatique (RNCP Niveau 7). Passionné par le
@@ -159,7 +165,13 @@ const About = () => {
             <p>
               J'ai eu l'opportunité de développer mes compétences lors de plusieurs expériences,
               notamment chez{' '}
-              <a href="https://revolte.club/" target="_blank" rel="noreferrer">
+              <a
+                href="https://revolte.club/"
+                target="_blank"
+                rel="noreferrer"
+                data-umami-event="outbound-click"
+                data-umami-event-destination="revolte"
+                data-umami-event-source="about">
                 Revolte E-garages
               </a>{' '}
               où j'ai contribué au développement d'une plateforme full-stack dédiée aux garagistes.
@@ -167,7 +179,10 @@ const About = () => {
               <a
                 href="https://www.helloasso.com/associations/reso2d/"
                 target="_blank"
-                rel="noreferrer">
+                rel="noreferrer"
+                data-umami-event="outbound-click"
+                data-umami-event-destination="reso2d"
+                data-umami-event-source="about">
                 RESO2D
               </a>{' '}
               (Green IT) et le DevFest Nantes.

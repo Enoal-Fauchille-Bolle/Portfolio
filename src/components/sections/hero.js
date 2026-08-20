@@ -71,7 +71,13 @@ const Hero = () => {
     </>
   );
   const five = (
-    <a className="email-link" href="mailto:contact@enoal.fr" rel="noreferrer">
+    <a
+      className="email-link"
+      href="mailto:contact@enoal.fr"
+      rel="noreferrer"
+      data-umami-event="contact-click"
+      data-umami-event-channel="email"
+      data-umami-event-source="hero">
       Contactez-moi
     </a>
   );
