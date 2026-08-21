@@ -83,10 +83,6 @@ const GlobalStyle = createGlobalStyle`
       font-size: var(--fz-lg);
     }
 
-    &.hidden {
-      overflow: hidden;
-    }
-
     &.blur {
       overflow: hidden;
 

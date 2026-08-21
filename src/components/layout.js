@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Head, Loader, Nav, Social, Email, Footer } from '@components';
+import { Head, Nav, Social, Email, Footer } from '@components';
 import { GlobalStyle, theme } from '@styles';
 
 const StyledContent = styled.div`
@@ -19,9 +19,9 @@ const Layout = ({ children, location, title, description, noindex }) => {
   const { t, originalPath } = useI18next();
   // location.pathname vaut '/en/' sur la home anglaise ; originalPath est le chemin
   // sans le préfixe de langue, donc '/' dans les deux langues. Sans ça, la version
-  // anglaise perdrait le loader et l'animation d'entrée.
+  // anglaise perdrait l'animation d'entrée, que Nav, Social et Email ne jouent que
+  // sur l'accueil.
   const isHome = originalPath === '/';
-  const [isLoading, setIsLoading] = useState(isHome);
 
   // Sets target="_blank" rel="noopener noreferrer" on external links
   const handleExternalLinks = () => {
@@ -37,10 +37,6 @@ const Layout = ({ children, location, title, description, noindex }) => {
   };
 
   useEffect(() => {
-    if (isLoading) {
-      return;
-    }
-
     if (location.hash) {
       const id = location.hash.substring(1); // location.hash without the '#'
       setTimeout(() => {
@@ -53,7 +49,7 @@ const Layout = ({ children, location, title, description, noindex }) => {
     }
 
     handleExternalLinks();
-  }, [isLoading]);
+  }, []);
 
   return (
     <>
@@ -67,20 +63,20 @@ const Layout = ({ children, location, title, description, noindex }) => {
             {t('layout.skipToContent')}
           </a>
 
-          {isLoading && isHome ? (
-            <Loader finishLoading={() => setIsLoading(false)} />
-          ) : (
-            <StyledContent>
-              <Nav isHome={isHome} />
-              <Social isHome={isHome} />
-              <Email isHome={isHome} />
+          {/* L'écran de chargement a été supprimé : il repoussait le montage de tout
+              ce bloc de ~2,2 s, donc le HTML servi ne contenait aucun contenu. L'entrée
+              en fondu n'en dépendait pas — Nav, Hero et Side portent chacun leur propre
+              minuterie de montage, et la chorégraphie est inchangée. */}
+          <StyledContent>
+            <Nav isHome={isHome} />
+            <Social isHome={isHome} />
+            <Email isHome={isHome} />
 
-              <div id="content">
-                {children}
-                <Footer />
-              </div>
-            </StyledContent>
-          )}
+            <div id="content">
+              {children}
+              <Footer />
+            </div>
+          </StyledContent>
         </ThemeProvider>
       </div>
     </>
