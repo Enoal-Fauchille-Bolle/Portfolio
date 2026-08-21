@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
-import { Helmet } from 'react-helmet';
 import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types';
@@ -52,9 +51,7 @@ const NotFoundPage = ({ location }) => {
   );
 
   return (
-    <Layout location={location}>
-      <Helmet title={t('notFound.title')} />
-
+    <Layout location={location} title={t('notFound.title')} noindex>
       {prefersReducedMotion ? (
         <>{content}</>
       ) : (
