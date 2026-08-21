@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { srConfig } from '@config';
-import { KEY_CODES } from '@utils';
+import { KEY_CODES, localizeEdges } from '@utils';
 import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
 
@@ -173,6 +174,7 @@ const Jobs = () => {
       ) {
         edges {
           node {
+            fileAbsolutePath
             frontmatter {
               title
               company
@@ -187,7 +189,8 @@ const Jobs = () => {
     }
   `);
 
-  const jobsData = data.jobs.edges;
+  const { t, language } = useI18next();
+  const jobsData = localizeEdges(data.jobs.edges, language);
 
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
@@ -244,10 +247,13 @@ const Jobs = () => {
 
   return (
     <StyledJobsSection id="jobs" ref={revealContainer}>
-      <h2 className="numbered-heading">Expériences</h2>
+      <h2 className="numbered-heading">{t('jobs.heading')}</h2>
 
       <div className="inner">
-        <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
+        <StyledTabList
+          role="tablist"
+          aria-label={t('jobs.tabsLabel')}
+          onKeyDown={e => onKeyDown(e)}>
           {jobsData &&
             jobsData.map(({ node }, i) => {
               const { company } = node.frontmatter;

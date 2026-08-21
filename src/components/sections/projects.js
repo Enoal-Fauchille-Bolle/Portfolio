@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
+import { localizeEdges } from '@utils';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
@@ -177,6 +179,7 @@ const Projects = () => {
       ) {
         edges {
           node {
+            fileAbsolutePath
             frontmatter {
               title
               tech
@@ -190,6 +193,7 @@ const Projects = () => {
     }
   `);
 
+  const { t, language } = useI18next();
   const [showMore, setShowMore] = useState(false);
   const revealTitle = useRef(null);
   const revealArchiveLink = useRef(null);
@@ -207,7 +211,7 @@ const Projects = () => {
   }, []);
 
   const GRID_LIMIT = 6;
-  const projects = data.projects.edges.filter(({ node }) => node);
+  const projects = localizeEdges(data.projects.edges, language).filter(({ node }) => node);
   const firstSix = projects.slice(0, GRID_LIMIT);
   const projectsToShow = showMore ? projects : firstSix;
 
@@ -226,7 +230,7 @@ const Projects = () => {
               {github && (
                 <a
                   href={github}
-                  aria-label="GitHub Link"
+                  aria-label={t('projects.githubLabel')}
                   target="_blank"
                   rel="noreferrer"
                   data-umami-event="project-click"
@@ -239,7 +243,7 @@ const Projects = () => {
               {external && (
                 <a
                   href={external}
-                  aria-label="External Link"
+                  aria-label={t('projects.externalLabel')}
                   className="external"
                   target="_blank"
                   rel="noreferrer"
@@ -284,10 +288,10 @@ const Projects = () => {
 
   return (
     <StyledProjectsSection>
-      <h2 ref={revealTitle}>Mes Autres Projets</h2>
+      <h2 ref={revealTitle}>{t('projects.heading')}</h2>
 
       <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
-        Voir les archives
+        {t('projects.archiveLink')}
       </Link>
 
       <ul className="projects-grid">
@@ -322,7 +326,7 @@ const Projects = () => {
       </ul>
 
       <button className="more-button" onClick={() => setShowMore(!showMore)}>
-        Voir {showMore ? 'Moins' : 'Plus'}
+        {showMore ? t('projects.showLess') : t('projects.showMore')}
       </button>
     </StyledProjectsSection>
   );

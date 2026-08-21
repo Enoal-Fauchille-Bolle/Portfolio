@@ -3,6 +3,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import sr from '@utils/sr';
+import { localizeEdges } from '@utils';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import { srConfig } from '@config';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
@@ -312,6 +314,7 @@ const Featured = () => {
       ) {
         edges {
           node {
+            fileAbsolutePath
             frontmatter {
               title
               cover {
@@ -331,7 +334,8 @@ const Featured = () => {
     }
   `);
 
-  const featuredProjects = data.featured.edges.filter(({ node }) => node);
+  const { t, language } = useI18next();
+  const featuredProjects = localizeEdges(data.featured.edges, language).filter(({ node }) => node);
   const revealTitle = useRef(null);
   const revealProjects = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -348,7 +352,7 @@ const Featured = () => {
   return (
     <section id="projects">
       <h2 className="numbered-heading" ref={revealTitle}>
-        Quelques choses que j'ai construites
+        {t('featured.heading')}
       </h2>
 
       <StyledProjectsGrid>
@@ -362,7 +366,7 @@ const Featured = () => {
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <div>
-                    <p className="project-overline">Projet en Vedette</p>
+                    <p className="project-overline">{t('featured.overline')}</p>
 
                     <h3 className="project-title">
                       <a
@@ -392,19 +396,19 @@ const Featured = () => {
                       {cta && (
                         <a
                           href={cta}
-                          aria-label="Lien du cours"
+                          aria-label={t('featured.ctaLabel')}
                           className="cta"
                           data-umami-event="project-click"
                           data-umami-event-project={title}
                           data-umami-event-section="featured"
                           data-umami-event-target="cta">
-                          En savoir plus
+                          {t('featured.cta')}
                         </a>
                       )}
                       {github && (
                         <a
                           href={github}
-                          aria-label="Lien GitHub"
+                          aria-label={t('featured.githubLabel')}
                           data-umami-event="project-click"
                           data-umami-event-project={title}
                           data-umami-event-section="featured"
@@ -415,7 +419,7 @@ const Featured = () => {
                       {external && !cta && (
                         <a
                           href={external}
-                          aria-label="Lien externe"
+                          aria-label={t('featured.externalLabel')}
                           className="external"
                           data-umami-event="project-click"
                           data-umami-event-project={title}
