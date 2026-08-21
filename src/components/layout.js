@@ -11,7 +11,11 @@ const StyledContent = styled.div`
   min-height: 100vh;
 `;
 
-const Layout = ({ children, location }) => {
+// `title`, `description` et `noindex` remontent jusqu'à <Head> : c'est la seule
+// instance de Helmet qui pose les balises canonical et hreflang, en rendre une
+// deuxième depuis une page les dupliquerait. Chaque page décrit donc son propre
+// référencement en passant ces props ici.
+const Layout = ({ children, location, title, description, noindex }) => {
   const { t, originalPath } = useI18next();
   // location.pathname vaut '/en/' sur la home anglaise ; originalPath est le chemin
   // sans le préfixe de langue, donc '/' dans les deux langues. Sans ça, la version
@@ -53,7 +57,7 @@ const Layout = ({ children, location }) => {
 
   return (
     <>
-      <Head />
+      <Head title={title} description={description} noindex={noindex} />
 
       <div id="root">
         <ThemeProvider theme={theme}>
@@ -86,6 +90,9 @@ const Layout = ({ children, location }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: PropTypes.object.isRequired,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  noindex: PropTypes.bool,
 };
 
 export default Layout;
