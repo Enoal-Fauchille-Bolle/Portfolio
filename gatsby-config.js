@@ -76,17 +76,16 @@ module.exports = {
       },
     },
     {
+      // Une seule instance pour tout `content/` : `content/projects` était déclaré
+      // une seconde fois, ce qui créait deux fois les mêmes nœuds File (même
+      // identifiant, dérivé du chemin absolu) pour chaque fiche de projet. Aucune
+      // requête ne filtre sur `sourceInstanceName` — elles utilisent toutes une
+      // regex sur `fileAbsolutePath` — la seconde instance ne servait donc qu'à
+      // relire et rehacher les mêmes fichiers.
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'content',
         path: `${__dirname}/content/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `projects`,
-        path: `${__dirname}/content/projects`,
       },
     },
     {
