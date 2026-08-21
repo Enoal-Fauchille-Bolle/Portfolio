@@ -1,11 +1,15 @@
 const config = require('./src/config');
 
+// Une seule source de vérité : siteMetadata, les balises canonical/hreflang du
+// plugin i18n et robots.txt doivent annoncer exactement la même origine.
+const siteUrl = 'https://enoal.fr'; // Pas de slash final
+
 module.exports = {
   siteMetadata: {
     title: 'Enoal Fauchille--Bolle',
     description:
       'Enoal Fauchille--Bolle est un étudiant développeur Full-stack, DevOps et Logiciel à Epitech Nantes.',
-    siteUrl: 'https://enoal.fr', // No trailing slash allowed!
+    siteUrl,
     image: '/og.png', // Path to your image you placed in the 'static' folder
   },
   plugins: [
@@ -29,7 +33,16 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-robots-txt`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        // Les deux options sont indispensables ensemble : si l'une manque, le
+        // plugin les redérive toutes les deux depuis siteUrl et réécrit sitemap
+        // en `/sitemap.xml`, qui n'existe pas.
+        host: siteUrl,
+        sitemap: `${siteUrl}/sitemap/sitemap-index.xml`,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -86,7 +99,7 @@ module.exports = {
         redirect: false,
         // Sans slash final : le Helmet du plugin concatène brut pour construire
         // les balises canonical et hreflang.
-        siteUrl: 'https://enoal.fr',
+        siteUrl,
         i18nextOptions: {
           interpolation: { escapeValue: false },
         },
