@@ -1,0 +1,81 @@
+{
+  "site": {
+    "description": "Enoal Fauchille--Bolle is a Full-stack, DevOps and Software development student at Epitech Nantes.",
+    "ogLocale": "en_US"
+  },
+  "language": {
+    "switch": "Change language",
+    "fr": "Français",
+    "en": "English"
+  },
+  "nav": {
+    "about": "About",
+    "jobs": "Experience",
+    "projects": "Work",
+    "contact": "Contact",
+    "resume": "Resume",
+    "homeLabel": "home",
+    "menuLabel": "Menu"
+  },
+  "layout": {
+    "skipToContent": "Skip to Content"
+  },
+  "hero": {
+    "greeting": "Hi, my name is",
+    "tagline": "Full-stack, DevOps and Software Developer.",
+    "intro": "A fourth-year student at Epitech Nantes, currently on exchange at <ruc>Roskilde University</ruc> in Denmark, I build robust web, DevOps and software solutions.",
+    "cta": "Get in touch"
+  },
+  "about": {
+    "heading": "About",
+    "p1": "Hi! I'm a fourth-year student at <epitech>Epitech Nantes</epitech> (Class of 2028), enrolled in the Expert en Informatique programme — a Master's-level Expert in Computer Science, French RNCP Level 7. Passionate about web, DevOps and software development, I build robust, modern solutions.",
+    "p2": "I am spending the 2026-2027 academic year on exchange at <ruc>Roskilde University</ruc> in Denmark, in the Master's programme in Computer Science.",
+    "p3": "I have had the opportunity to grow my skills across several experiences, notably at <revolte>Revolte E-garages</revolte>, where I helped build a full-stack platform for garage owners. I am also involved in volunteer initiatives such as <reso2d>RESO2D</reso2d> (Green IT) and DevFest Nantes.",
+    "softSkills": "My soft skills: <strong>Rigorous</strong>, <strong>Conscientious</strong>, <strong>Self-reliant</strong>, <strong>Curious</strong>, <strong>Creative</strong>, and <strong>Collaborative</strong>.",
+    "techIntro": "Here are a few technologies I have been working with recently:",
+    "photoAlt": "Enoal Fauchille--Bolle profile picture"
+  },
+  "jobs": {
+    "heading": "Experience",
+    "tabsLabel": "Job tabs"
+  },
+  "featured": {
+    "heading": "Some Things I've Built",
+    "overline": "Featured Project",
+    "cta": "Learn more",
+    "ctaLabel": "Course link",
+    "githubLabel": "GitHub link",
+    "externalLabel": "External link"
+  },
+  "projects": {
+    "heading": "Other Noteworthy Projects",
+    "archiveLink": "View the archive",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "githubLabel": "GitHub link",
+    "externalLabel": "External link"
+  },
+  "contact": {
+    "overline": "What's Next?",
+    "heading": "Get In Touch",
+    "body": "I will be looking for a fifth-year internship starting in September 2027.",
+    "cta": "Say Hello"
+  },
+  "archive": {
+    "title": "Archive",
+    "subtitle": "A big list of things I've worked on",
+    "year": "Year",
+    "projectTitle": "Title",
+    "madeAt": "Made at",
+    "builtWith": "Built with",
+    "link": "Link"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "home": "Go Home"
+  },
+  "footer": {
+    "design": "Original design by Brittany Chiang",
+    "refactor": "Refactored by Enoal Fauchille--Bolle"
+  }
+}

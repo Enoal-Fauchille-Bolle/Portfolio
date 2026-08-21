@@ -14,12 +14,26 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        // Les exclusions par défaut du plugin (/404, /404.html, /dev-404-page,
+        // /offline-plugin-app-shell-fallback) sont des chemins exacts : elles
+        // laissent passer les variantes préfixées par la langue. Ces globs les
+        // rattrapent pour toute langue présente ou future.
+        excludes: [
+          `/*/404`,
+          `/*/404.html`,
+          `/*/dev-404-page`,
+          `/*/offline-plugin-app-shell-fallback`,
+        ],
+      },
+    },
     `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Enoal Fauchille--Bolle - Développeur Full-stack',
+        name: 'Enoal Fauchille--Bolle',
         short_name: 'Enoal Fauchille--Bolle',
         start_url: '/',
         background_color: config.colors.darkNavy,
@@ -48,6 +62,34 @@ module.exports = {
       options: {
         name: `projects`,
         path: `${__dirname}/content/projects`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `locale`,
+        path: `${__dirname}/locales`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`,
+        languages: [`fr`, `en`],
+        defaultLanguage: `fr`,
+        // Le français reste servi sur `/` sans préfixe ; seul l'anglais est routé
+        // sous `/en/`. `/fr` est traité par une redirection 301 dans nginx.
+        generateDefaultLanguagePage: false,
+        // Aucune redirection automatique sur la langue du navigateur : `enoal.fr`
+        // doit vouloir dire la même chose pour tout le monde. Le choix passe par
+        // le sélecteur de langue, donc par le visiteur.
+        redirect: false,
+        // Sans slash final : le Helmet du plugin concatène brut pour construire
+        // les balises canonical et hreflang.
+        siteUrl: 'https://enoal.fr',
+        i18nextOptions: {
+          interpolation: { escapeValue: false },
+        },
       },
     },
     {

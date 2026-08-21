@@ -1,0 +1,81 @@
+{
+  "site": {
+    "description": "Enoal Fauchille--Bolle est un étudiant développeur Full-stack, DevOps et Logiciel à Epitech Nantes.",
+    "ogLocale": "fr_FR"
+  },
+  "language": {
+    "switch": "Changer de langue",
+    "fr": "Français",
+    "en": "English"
+  },
+  "nav": {
+    "about": "À propos",
+    "jobs": "Expérience",
+    "projects": "Travail",
+    "contact": "Contact",
+    "resume": "Curriculum Vitae",
+    "homeLabel": "accueil",
+    "menuLabel": "Menu"
+  },
+  "layout": {
+    "skipToContent": "Aller au contenu"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "tagline": "Développeur Full-stack, DevOps et Logiciel.",
+    "intro": "Étudiant en 4ème année à Epitech Nantes, actuellement en échange à <ruc>Roskilde University</ruc> au Danemark, je conçois des solutions web, DevOps et logicielles robustes.",
+    "cta": "Contactez-moi"
+  },
+  "about": {
+    "heading": "À propos",
+    "p1": "Bonjour ! Je suis étudiant en 4ème année à <epitech>Epitech Nantes</epitech> (Promo 2028), en formation Expert en Informatique (RNCP Niveau 7). Passionné par le développement web, DevOps et logiciel, je conçois des solutions robustes et modernes.",
+    "p2": "Je passe l'année universitaire 2026-2027 en échange à <ruc>Roskilde University</ruc> au Danemark, dans le programme Master en Computer Science.",
+    "p3": "J'ai eu l'opportunité de développer mes compétences lors de plusieurs expériences, notamment chez <revolte>Revolte E-garages</revolte> où j'ai contribué au développement d'une plateforme full-stack dédiée aux garagistes. Je suis également impliqué dans des initiatives bénévoles comme <reso2d>RESO2D</reso2d> (Green IT) et le DevFest Nantes.",
+    "softSkills": "Mes soft skills : <strong>Rigoureux</strong>, <strong>Consciencieux</strong>, <strong>Autonome</strong>, <strong>Curieux</strong>, <strong>Créatif</strong>, et <strong>Collaboratif</strong>.",
+    "techIntro": "Voici quelques technologies avec lesquelles je travaille actuellement :",
+    "photoAlt": "Photo de profil Enoal Fauchille--Bolle"
+  },
+  "jobs": {
+    "heading": "Expériences",
+    "tabsLabel": "Onglets des expériences"
+  },
+  "featured": {
+    "heading": "Quelques choses que j'ai construites",
+    "overline": "Projet en Vedette",
+    "cta": "En savoir plus",
+    "ctaLabel": "Lien du cours",
+    "githubLabel": "Lien GitHub",
+    "externalLabel": "Lien externe"
+  },
+  "projects": {
+    "heading": "Mes Autres Projets",
+    "archiveLink": "Voir les archives",
+    "showMore": "Voir Plus",
+    "showLess": "Voir Moins",
+    "githubLabel": "Lien GitHub",
+    "externalLabel": "Lien externe"
+  },
+  "contact": {
+    "overline": "Et maintenant ?",
+    "heading": "Contactez-moi",
+    "body": "Je serai en recherche de stage pour ma 5ème année à partir de septembre 2027.",
+    "cta": "Écrivez-moi"
+  },
+  "archive": {
+    "title": "Archive",
+    "subtitle": "Une longue liste de choses sur lesquelles j'ai travaillé",
+    "year": "Année",
+    "projectTitle": "Titre",
+    "madeAt": "Fait à",
+    "builtWith": "Construit avec",
+    "link": "Lien"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "home": "Retour à l'accueil"
+  },
+  "footer": {
+    "design": "Design original par Brittany Chiang",
+    "refactor": "Refactorisé par Enoal Fauchille--Bolle"
+  }
+}
