@@ -2,9 +2,11 @@ import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
+import { localizeEdges } from '@utils';
 import { Layout } from '@components';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
@@ -130,7 +132,8 @@ const StyledTableContainer = styled.div`
 `;
 
 const ArchivePage = ({ location, data }) => {
-  const projects = data.allMarkdownRemark.edges;
+  const { t, language } = useI18next();
+  const projects = localizeEdges(data.allMarkdownRemark.edges, language);
   const revealTitle = useRef(null);
   const revealTable = useRef(null);
   const revealProjects = useRef([]);
@@ -148,23 +151,23 @@ const ArchivePage = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <Helmet title="Archive" />
+      <Helmet title={t('archive.title')} />
 
       <main>
         <header ref={revealTitle}>
-          <h1 className="big-heading">Archive</h1>
-          <p className="subtitle">Une longue liste de choses sur lesquelles j'ai travaillé</p>
+          <h1 className="big-heading">{t('archive.title')}</h1>
+          <p className="subtitle">{t('archive.subtitle')}</p>
         </header>
 
         <StyledTableContainer ref={revealTable}>
           <table>
             <thead>
               <tr>
-                <th>Année</th>
-                <th>Titre</th>
-                <th className="hide-on-mobile">Fait à</th>
-                <th className="hide-on-mobile">Construit avec</th>
-                <th>Lien</th>
+                <th>{t('archive.year')}</th>
+                <th>{t('archive.projectTitle')}</th>
+                <th className="hide-on-mobile">{t('archive.madeAt')}</th>
+                <th className="hide-on-mobile">{t('archive.builtWith')}</th>
+                <th>{t('archive.link')}</th>
               </tr>
             </thead>
             <tbody>
@@ -267,13 +270,23 @@ ArchivePage.propTypes = {
 export default ArchivePage;
 
 export const pageQuery = graphql`
-  {
+  query ArchivePageQuery($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/projects/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
         node {
+          fileAbsolutePath
           frontmatter {
             date
             title

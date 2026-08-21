@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -22,12 +23,14 @@ const StyledSubtitle = styled.h2`
   font-size: clamp(30px, 5vw, 50px);
   font-weight: 400;
 `;
+// Link vient du plugin i18n : sur /en/404 le bouton renvoie vers /en/, pas vers /.
 const StyledHomeButton = styled(Link)`
   ${({ theme }) => theme.mixins.bigButton};
   margin-top: 40px;
 `;
 
 const NotFoundPage = ({ location }) => {
+  const { t } = useI18next();
   const [isMounted, setIsMounted] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -43,14 +46,14 @@ const NotFoundPage = ({ location }) => {
   const content = (
     <StyledMainContainer className="fillHeight">
       <StyledTitle>404</StyledTitle>
-      <StyledSubtitle>Page Not Found</StyledSubtitle>
-      <StyledHomeButton to="/">Go Home</StyledHomeButton>
+      <StyledSubtitle>{t('notFound.title')}</StyledSubtitle>
+      <StyledHomeButton to="/">{t('notFound.home')}</StyledHomeButton>
     </StyledMainContainer>
   );
 
   return (
     <Layout location={location}>
-      <Helmet title="Page Not Found" />
+      <Helmet title={t('notFound.title')} />
 
       {prefersReducedMotion ? (
         <>{content}</>
@@ -72,3 +75,17 @@ NotFoundPage.propTypes = {
 };
 
 export default NotFoundPage;
+
+export const pageQuery = graphql`
+  query NotFoundPageQuery($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
