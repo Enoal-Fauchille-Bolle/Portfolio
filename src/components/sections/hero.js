@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { navDelay, loaderDelay } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';
@@ -47,6 +48,7 @@ const StyledHeroSection = styled.section`
 `;
 
 const Hero = () => {
+  const { t } = useI18next();
   const [isMounted, setIsMounted] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -59,23 +61,30 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <h1>Bonjour, je suis</h1>;
+  const one = <h1>{t('hero.greeting')}</h1>;
   const two = <h2 className="big-heading">Enoal Fauchille--Bolle.</h2>;
-  const three = <h3 className="medium-heading">Développeur Full-stack, DevOps et Logiciel.</h3>;
+  const three = <h3 className="medium-heading">{t('hero.tagline')}</h3>;
+  // Trans garde le lien dans le flux de la phrase : la traduction porte la balise
+  // <ruc>…</ruc> et le JSX fournit le <a> avec ses attributs de suivi intacts.
   const four = (
     <>
       <p>
-        Étudiant en 4ème année à Epitech Nantes, actuellement en échange à{' '}
-        <a
-          href="https://ruc.dk/en"
-          target="_blank"
-          rel="noreferrer"
-          data-umami-event="outbound-click"
-          data-umami-event-destination="roskilde-university"
-          data-umami-event-source="hero">
-          Roskilde University
-        </a>{' '}
-        au Danemark, je conçois des solutions web, DevOps et logicielles robustes.
+        <Trans
+          i18nKey="hero.intro"
+          components={{
+            ruc: (
+              <a
+                href="https://ruc.dk/en"
+                target="_blank"
+                rel="noreferrer"
+                data-umami-event="outbound-click"
+                data-umami-event-destination="roskilde-university"
+                data-umami-event-source="hero">
+                Roskilde University
+              </a>
+            ),
+          }}
+        />
       </p>
     </>
   );
@@ -87,7 +96,7 @@ const Hero = () => {
       data-umami-event="contact-click"
       data-umami-event-channel="email"
       data-umami-event-source="hero">
-      Contactez-moi
+      {t('hero.cta')}
     </a>
   );
 

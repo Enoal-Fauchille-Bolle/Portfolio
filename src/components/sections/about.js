@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
@@ -114,6 +115,7 @@ const StyledPic = styled.div`
 `;
 
 const About = () => {
+  const { t } = useI18next();
   const revealContainer = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -144,73 +146,86 @@ const About = () => {
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
-      <h2 className="numbered-heading">À propos</h2>
+      <h2 className="numbered-heading">{t('about.heading')}</h2>
 
       <div className="inner">
         <StyledText>
           <div>
             <p>
-              Bonjour ! Je suis étudiant en 4ème année à{' '}
-              <a
-                href="https://www.epitech.eu/"
-                target="_blank"
-                rel="noreferrer"
-                data-umami-event="outbound-click"
-                data-umami-event-destination="epitech"
-                data-umami-event-source="about">
-                Epitech Nantes
-              </a>{' '}
-              (Promo 2028), en formation Expert en Informatique (RNCP Niveau 7). Passionné par le
-              développement web, DevOps et logiciel, je conçois des solutions robustes et modernes.
+              <Trans
+                i18nKey="about.p1"
+                components={{
+                  epitech: (
+                    <a
+                      href="https://www.epitech.eu/"
+                      target="_blank"
+                      rel="noreferrer"
+                      data-umami-event="outbound-click"
+                      data-umami-event-destination="epitech"
+                      data-umami-event-source="about">
+                      Epitech Nantes
+                    </a>
+                  ),
+                }}
+              />
             </p>
 
             <p>
-              Je passe l'année universitaire 2026-2027 en échange à{' '}
-              <a
-                href="https://ruc.dk/en"
-                target="_blank"
-                rel="noreferrer"
-                data-umami-event="outbound-click"
-                data-umami-event-destination="roskilde-university"
-                data-umami-event-source="about">
-                Roskilde University
-              </a>{' '}
-              au Danemark, dans le programme Master en Computer Science.
+              <Trans
+                i18nKey="about.p2"
+                components={{
+                  ruc: (
+                    <a
+                      href="https://ruc.dk/en"
+                      target="_blank"
+                      rel="noreferrer"
+                      data-umami-event="outbound-click"
+                      data-umami-event-destination="roskilde-university"
+                      data-umami-event-source="about">
+                      Roskilde University
+                    </a>
+                  ),
+                }}
+              />
             </p>
 
             <p>
-              J'ai eu l'opportunité de développer mes compétences lors de plusieurs expériences,
-              notamment chez{' '}
-              <a
-                href="https://revolte.club/"
-                target="_blank"
-                rel="noreferrer"
-                data-umami-event="outbound-click"
-                data-umami-event-destination="revolte"
-                data-umami-event-source="about">
-                Revolte E-garages
-              </a>{' '}
-              où j'ai contribué au développement d'une plateforme full-stack dédiée aux garagistes.
-              Je suis également impliqué dans des initiatives bénévoles comme{' '}
-              <a
-                href="https://www.helloasso.com/associations/reso2d/"
-                target="_blank"
-                rel="noreferrer"
-                data-umami-event="outbound-click"
-                data-umami-event-destination="reso2d"
-                data-umami-event-source="about">
-                RESO2D
-              </a>{' '}
-              (Green IT) et le DevFest Nantes.
+              <Trans
+                i18nKey="about.p3"
+                components={{
+                  revolte: (
+                    <a
+                      href="https://revolte.club/"
+                      target="_blank"
+                      rel="noreferrer"
+                      data-umami-event="outbound-click"
+                      data-umami-event-destination="revolte"
+                      data-umami-event-source="about">
+                      Revolte E-garages
+                    </a>
+                  ),
+                  reso2d: (
+                    <a
+                      href="https://www.helloasso.com/associations/reso2d/"
+                      target="_blank"
+                      rel="noreferrer"
+                      data-umami-event="outbound-click"
+                      data-umami-event-destination="reso2d"
+                      data-umami-event-source="about">
+                      RESO2D
+                    </a>
+                  ),
+                }}
+              />
             </p>
 
+            {/* <strong> fait partie de transKeepBasicHtmlNodesFor : la balise est
+                conservée telle quelle depuis la traduction, sans composant à fournir. */}
             <p>
-              Mes soft skills : <strong>Rigoureux</strong>, <strong>Consciencieux</strong>,{' '}
-              <strong>Autonome</strong>, <strong>Curieux</strong>, <strong>Créatif</strong>, et{' '}
-              <strong>Collaboratif</strong>.
+              <Trans i18nKey="about.softSkills" />
             </p>
 
-            <p>Voici quelques technologies avec lesquelles je travaille actuellement :</p>
+            <p>{t('about.techIntro')}</p>
           </div>
 
           <ul className="skills-list">
@@ -226,7 +241,7 @@ const About = () => {
               width={500}
               quality={95}
               formats={['AUTO', 'WEBP', 'AVIF']}
-              alt="Photo de profil Enoal Fauchille--Bolle"
+              alt={t('about.photoAlt')}
             />
           </div>
         </StyledPic>

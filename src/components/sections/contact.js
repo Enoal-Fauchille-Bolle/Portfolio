@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import { srConfig, email } from '@config';
 import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
@@ -42,6 +43,7 @@ const StyledContactSection = styled.section`
 `;
 
 const Contact = () => {
+  const { t } = useI18next();
   const revealContainer = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -55,11 +57,11 @@ const Contact = () => {
 
   return (
     <StyledContactSection id="contact" ref={revealContainer}>
-      <h2 className="numbered-heading overline">Et maintenant ?</h2>
+      <h2 className="numbered-heading overline">{t('contact.overline')}</h2>
 
-      <h2 className="title">Contactez-moi</h2>
+      <h2 className="title">{t('contact.heading')}</h2>
 
-      <p>Je serai en recherche de stage pour ma 5ème année à partir de septembre 2027.</p>
+      <p>{t('contact.body')}</p>
 
       <a
         className="email-link"
@@ -67,7 +69,7 @@ const Contact = () => {
         data-umami-event="contact-click"
         data-umami-event-channel="email"
         data-umami-event-source="contact-section">
-        Écrivez-moi
+        {t('contact.cta')}
       </a>
     </StyledContactSection>
   );
