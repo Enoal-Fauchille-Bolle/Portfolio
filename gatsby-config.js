@@ -7,8 +7,8 @@ const siteUrl = 'https://enoal.fr'; // Pas de slash final
 module.exports = {
   siteMetadata: {
     title: 'Enoal Fauchille--Bolle',
-    description:
-      'Enoal Fauchille--Bolle est un étudiant développeur Full-stack, DevOps et Logiciel à Epitech Nantes.',
+    // La description du site vit dans locales/<langue>/translation.json, sous la
+    // clé site.description, et c'est head.js qui la lit.
     siteUrl,
     image: '/og.png', // Path to your image you placed in the 'static' folder
   },
