@@ -21,6 +21,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
+        // La v4 appelle simpleSitemapAndIndex() sans lui passer `publicBasePath`
+        // (gatsby-node.js:118-123) : l'index construit donc ses liens depuis la
+        // racine (`/sitemap-0.xml`) alors que le dossier de sortie par défaut est
+        // `/sitemap`. La chaîne pointe dans le vide. On écrit à la racine pour que
+        // les liens de l'index correspondent aux fichiers réellement produits.
+        output: `/`,
+        // Corollaire de output: `/` — le plugin construit le lien du <head> avec
+        // withoutTrailingSlash(output), qui renvoie `/` tel quel (internals.js:27)
+        // et produit donc `//sitemap-index.xml`, lu comme un nom d'hôte. On coupe
+        // ce lien : <link rel="sitemap"> n'est pas un standard et aucun moteur ne
+        // s'en sert. La découverte passe par la ligne Sitemap de robots.txt.
+        createLinkInHead: false,
         // Les exclusions par défaut du plugin (/404, /404.html, /dev-404-page,
         // /offline-plugin-app-shell-fallback) sont des chemins exacts : elles
         // laissent passer les variantes préfixées par la langue. Ces globs les
@@ -40,7 +52,7 @@ module.exports = {
         // plugin les redérive toutes les deux depuis siteUrl et réécrit sitemap
         // en `/sitemap.xml`, qui n'existe pas.
         host: siteUrl,
-        sitemap: `${siteUrl}/sitemap/sitemap-index.xml`,
+        sitemap: `${siteUrl}/sitemap-index.xml`,
       },
     },
     {
