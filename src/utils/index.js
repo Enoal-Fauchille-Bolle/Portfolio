@@ -4,7 +4,9 @@ export const hex2rgba = (hex, alpha = 1) => {
 };
 
 export const navDelay = 100;
-export const loaderDelay = 500;
+// Durée de l’entrée en fondu : délai avant le montage des barres latérales,
+// et timeout des CSSTransition de Hero, Nav et Side.
+export const revealDelay = 500;
 
 export const KEY_CODES = {
   ARROW_LEFT: 'ArrowLeft',

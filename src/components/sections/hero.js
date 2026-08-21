@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
-import { navDelay, loaderDelay } from '@utils';
+import { navDelay, revealDelay } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledHeroSection = styled.section`
@@ -114,7 +114,7 @@ const Hero = () => {
         <TransitionGroup component={null}>
           {isMounted &&
             items.map((item, i) => (
-              <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
+              <CSSTransition key={i} classNames="fadeup" timeout={revealDelay}>
                 <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
               </CSSTransition>
             ))}
