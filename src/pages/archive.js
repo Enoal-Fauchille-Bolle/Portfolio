@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { srConfig } from '@config';
@@ -150,9 +149,7 @@ const ArchivePage = ({ location, data }) => {
   }, []);
 
   return (
-    <Layout location={location}>
-      <Helmet title={t('archive.title')} />
-
+    <Layout location={location} title={t('archive.title')} description={t('archive.subtitle')}>
       <main>
         <header ref={revealTitle}>
           <h1 className="big-heading">{t('archive.title')}</h1>
