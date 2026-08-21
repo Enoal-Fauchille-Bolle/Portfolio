@@ -239,7 +239,9 @@ const About = () => {
               className="img"
               src="../../images/me.jpg"
               width={500}
-              quality={95}
+              // 95 produisait un fichier deux fois plus lourd que 80 pour une
+              // différence invisible sur une photo affichée en 500 px de large.
+              quality={80}
               formats={['AUTO', 'WEBP', 'AVIF']}
               alt={t('about.photoAlt')}
             />
