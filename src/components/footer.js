@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Icon } from '@components/icons';
 import { socialMedia } from '@config';
 
@@ -67,40 +68,44 @@ const StyledCredit = styled.div`
   }
 `;
 
-const Footer = () => (
-  <StyledFooter>
-    <StyledSocialLinks>
-      <ul>
-        {socialMedia &&
-          socialMedia.map(({ name, url }, i) => (
-            <li key={i}>
-              <a
-                href={url}
-                aria-label={name}
-                data-umami-event="contact-click"
-                data-umami-event-channel={name}
-                data-umami-event-source="footer">
-                <Icon name={name} />
-              </a>
-            </li>
-          ))}
-      </ul>
-    </StyledSocialLinks>
+const Footer = () => {
+  const { t } = useI18next();
 
-    <StyledCredit tabindex="-1">
-      <div>
-        <a
-          href="https://github.com/bchiang7/v4"
-          data-umami-event="outbound-click"
-          data-umami-event-destination="bchiang7-v4"
-          data-umami-event-source="footer">
-          Design original par Brittany Chiang
-        </a>
-      </div>
-      <div style={{ marginTop: '5px' }}>Refactorisé par Enoal Fauchille--Bolle</div>
-    </StyledCredit>
-  </StyledFooter>
-);
+  return (
+    <StyledFooter>
+      <StyledSocialLinks>
+        <ul>
+          {socialMedia &&
+            socialMedia.map(({ name, url }, i) => (
+              <li key={i}>
+                <a
+                  href={url}
+                  aria-label={name}
+                  data-umami-event="contact-click"
+                  data-umami-event-channel={name}
+                  data-umami-event-source="footer">
+                  <Icon name={name} />
+                </a>
+              </li>
+            ))}
+        </ul>
+      </StyledSocialLinks>
+
+      <StyledCredit tabindex="-1">
+        <div>
+          <a
+            href="https://github.com/bchiang7/v4"
+            data-umami-event="outbound-click"
+            data-umami-event-destination="bchiang7-v4"
+            data-umami-event-source="footer">
+            {t('footer.design')}
+          </a>
+        </div>
+        <div style={{ marginTop: '5px' }}>{t('footer.refactor')}</div>
+      </StyledCredit>
+    </StyledFooter>
+  );
+};
 
 Footer.propTypes = {
   githubInfo: PropTypes.object,

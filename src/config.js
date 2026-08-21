@@ -16,21 +16,24 @@ module.exports = {
     },
   ],
 
+  // `key` est l'identifiant stable du lien : le libellé affiché vient des fichiers
+  // de locales (`nav.<key>`). Ce fichier est en CommonJS car `gatsby-config.js` le
+  // charge avec require() — il ne doit donc ni importer React ni appeler t().
   navLinks: [
     {
-      name: 'À propos',
+      key: 'about',
       url: '/#about',
     },
     {
-      name: 'Expérience',
+      key: 'jobs',
       url: '/#jobs',
     },
     {
-      name: 'Travail',
+      key: 'projects',
       url: '/#projects',
     },
     {
-      name: 'Contact',
+      key: 'contact',
       url: '/#contact',
     },
   ],

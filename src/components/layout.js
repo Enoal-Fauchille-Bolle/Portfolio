@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Head, Loader, Nav, Social, Email, Footer } from '@components';
 import { GlobalStyle, theme } from '@styles';
 
@@ -11,7 +12,11 @@ const StyledContent = styled.div`
 `;
 
 const Layout = ({ children, location }) => {
-  const isHome = location.pathname === '/';
+  const { t, originalPath } = useI18next();
+  // location.pathname vaut '/en/' sur la home anglaise ; originalPath est le chemin
+  // sans le préfixe de langue, donc '/' dans les deux langues. Sans ça, la version
+  // anglaise perdrait le loader et l'animation d'entrée.
+  const isHome = originalPath === '/';
   const [isLoading, setIsLoading] = useState(isHome);
 
   // Sets target="_blank" rel="noopener noreferrer" on external links
@@ -55,7 +60,7 @@ const Layout = ({ children, location }) => {
           <GlobalStyle />
 
           <a className="skip-to-content" href="#content">
-            Skip to Content
+            {t('layout.skipToContent')}
           </a>
 
           {isLoading && isHome ? (

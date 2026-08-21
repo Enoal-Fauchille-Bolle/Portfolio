@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
+import { Helmet, useI18next } from 'gatsby-plugin-react-i18next';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
 
@@ -8,6 +8,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 const Head = ({ title, description, image }) => {
   const { pathname } = useLocation();
+  const { t } = useI18next();
 
   const { site } = useStaticQuery(
     graphql`
@@ -15,7 +16,6 @@ const Head = ({ title, description, image }) => {
         site {
           siteMetadata {
             defaultTitle: title
-            defaultDescription: description
             siteUrl
             defaultImage: image
           }
@@ -24,19 +24,17 @@ const Head = ({ title, description, image }) => {
     `,
   );
 
-  const { defaultTitle, defaultDescription, siteUrl, defaultImage } = site.siteMetadata;
+  const { defaultTitle, siteUrl, defaultImage } = site.siteMetadata;
 
   const seo = {
     title: title || defaultTitle,
-    description: description || defaultDescription,
+    description: description || t('site.description'),
     image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${pathname}`,
   };
 
   return (
     <Helmet title={title} defaultTitle={seo.title} titleTemplate={`%s | ${defaultTitle}`}>
-      <html lang="fr" />
-
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
 
@@ -47,6 +45,7 @@ const Head = ({ title, description, image }) => {
       <meta property="og:image:height" content="630" />
       <meta property="og:url" content={seo.url} />
       <meta property="og:type" content="website" />
+      <meta property="og:locale" content={t('site.ogLocale')} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title} />

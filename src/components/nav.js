@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled, { css } from 'styled-components';
 import { navLinks } from '@config';
 import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
-import { Menu } from '@components';
+import { Menu, LangSwitcher } from '@components';
 import { IconLogo, IconHex } from '@components/icons';
 
 const StyledHeader = styled.header`
@@ -148,9 +148,16 @@ const StyledLinks = styled.div`
     margin-left: 15px;
     font-size: var(--fz-xs);
   }
+
+  .lang-switcher {
+    margin-left: 15px;
+  }
 `;
 
 const Nav = ({ isHome }) => {
+  const { t, language, defaultLanguage } = useI18next();
+  // La home anglaise est /en/ : un href codé en dur vers '/' ramènerait au français.
+  const homeHref = language === defaultLanguage ? '/' : `/${language}/`;
   const [isMounted, setIsMounted] = useState(!isHome);
   const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
@@ -184,7 +191,7 @@ const Nav = ({ isHome }) => {
   const Logo = (
     <div className="logo" tabIndex="-1">
       {isHome ? (
-        <a href="/" aria-label="home">
+        <a href={homeHref} aria-label={t('nav.homeLabel')}>
           <div className="hex-container">
             <IconHex />
           </div>
@@ -193,7 +200,7 @@ const Nav = ({ isHome }) => {
           </div>
         </a>
       ) : (
-        <Link to="/" aria-label="home">
+        <Link to="/" aria-label={t('nav.homeLabel')}>
           <div className="hex-container">
             <IconHex />
           </div>
@@ -213,7 +220,7 @@ const Nav = ({ isHome }) => {
       rel="noopener noreferrer"
       data-umami-event="cv-click"
       data-umami-event-source="nav">
-      Curriculum Vitae
+      {t('nav.resume')}
     </a>
   );
 
@@ -227,13 +234,14 @@ const Nav = ({ isHome }) => {
             <StyledLinks>
               <ol>
                 {navLinks &&
-                  navLinks.map(({ url, name }, i) => (
+                  navLinks.map(({ url, key }, i) => (
                     <li key={i}>
-                      <Link to={url}>{name}</Link>
+                      <Link to={url}>{t(`nav.${key}`)}</Link>
                     </li>
                   ))}
               </ol>
               <div>{ResumeLink}</div>
+              <LangSwitcher className="lang-switcher" />
             </StyledLinks>
 
             <Menu />
@@ -253,10 +261,10 @@ const Nav = ({ isHome }) => {
                 <TransitionGroup component={null}>
                   {isMounted &&
                     navLinks &&
-                    navLinks.map(({ url, name }, i) => (
+                    navLinks.map(({ url, key }, i) => (
                       <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
                         <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
-                          <Link to={url}>{name}</Link>
+                          <Link to={url}>{t(`nav.${key}`)}</Link>
                         </li>
                       </CSSTransition>
                     ))}
@@ -268,6 +276,19 @@ const Nav = ({ isHome }) => {
                   <CSSTransition classNames={fadeDownClass} timeout={timeout}>
                     <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
                       {ResumeLink}
+                    </div>
+                  </CSSTransition>
+                )}
+              </TransitionGroup>
+
+              <TransitionGroup component={null}>
+                {isMounted && (
+                  <CSSTransition classNames={fadeDownClass} timeout={timeout}>
+                    <div
+                      style={{
+                        transitionDelay: `${isHome ? (navLinks.length + 1) * 100 : 0}ms`,
+                      }}>
+                      <LangSwitcher className="lang-switcher" />
                     </div>
                   </CSSTransition>
                 )}

@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'gatsby';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { navLinks } from '@config';
 import { KEY_CODES } from '@utils';
 import { useOnClickOutside } from '@hooks';
+import LangSwitcher from './langSwitcher';
 
 const StyledMenu = styled.div`
   display: none;
@@ -153,9 +154,19 @@ const StyledSidebar = styled.aside`
     margin: 10% auto 0;
     width: max-content;
   }
+
+  .lang-switcher {
+    margin: 30px auto 0;
+    font-size: var(--fz-sm);
+
+    a {
+      padding: 10px;
+    }
+  }
 `;
 
 const Menu = () => {
+  const { t } = useI18next();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -246,7 +257,7 @@ const Menu = () => {
           onClick={toggleMenu}
           menuOpen={menuOpen}
           ref={buttonRef}
-          aria-label="Menu">
+          aria-label={t('nav.menuLabel')}>
           <div className="ham-box">
             <div className="ham-box-inner" />
           </div>
@@ -256,10 +267,10 @@ const Menu = () => {
           <nav ref={navRef}>
             {navLinks && (
               <ol>
-                {navLinks.map(({ url, name }, i) => (
+                {navLinks.map(({ url, key }, i) => (
                   <li key={i}>
                     <Link to={url} onClick={() => setMenuOpen(false)}>
-                      {name}
+                      {t(`nav.${key}`)}
                     </Link>
                   </li>
                 ))}
@@ -273,8 +284,10 @@ const Menu = () => {
               rel="noopener noreferrer"
               data-umami-event="cv-click"
               data-umami-event-source="menu">
-              Curriculum Vitae
+              {t('nav.resume')}
             </a>
+
+            <LangSwitcher className="lang-switcher" onNavigate={() => setMenuOpen(false)} />
           </nav>
         </StyledSidebar>
       </div>
