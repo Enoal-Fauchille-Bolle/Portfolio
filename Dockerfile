@@ -41,6 +41,12 @@ ENV GATSBY_UMAMI_HOST_URL=$GATSBY_UMAMI_HOST_URL
 # Construction du site statique (génère le dossier /public)
 RUN npm run build
 
+# Les .js.map pèsent 4 Mo et exposent l'intégralité des sources. Le navigateur ne
+# les télécharge que si les DevTools sont ouverts, mais ils restent servis
+# publiquement et gonflent l'image d'autant. On les retire de l'artefact final ;
+# ils restent produits pendant le build, donc disponibles en local.
+RUN find /app/public -name '*.js.map' -delete
+
 # Étape 2 : Serveur Web
 FROM nginx:alpine
 
