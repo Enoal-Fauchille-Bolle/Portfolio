@@ -9,7 +9,7 @@ android: ''
 tech:
   - Rust
   - TUI
-  - Macros procédurales
+  - Procedural macros
 showInProjects: true
 ---
 
