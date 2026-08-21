@@ -58,6 +58,10 @@ const sfMono = {
   italic: sfMonoItalicWeights,
 };
 
+// font-display: la valeur précédente, `auto`, laisse le navigateur décider — et
+// tous décident de bloquer : jusqu'à 3 secondes de texte invisible pendant le
+// téléchargement de la police. `swap` affiche tout de suite la police de secours
+// puis bascule, le texte est donc lisible dès la première image affichée.
 const createFontFaces = (family, style = 'normal') => {
   let styles = '';
 
@@ -72,7 +76,7 @@ const createFontFaces = (family, style = 'normal') => {
             url(${woff}) format('woff');
         font-weight: ${weight};
         font-style: ${style};
-        font-display: auto;
+        font-display: swap;
       }
     `;
   }
