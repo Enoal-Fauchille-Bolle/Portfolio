@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Link, useI18next } from '@i18n';
+import { Link, useI18next, dismissLangHint } from '@i18n';
 
 const StyledLangSwitcher = styled.div`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -38,6 +38,16 @@ const StyledLangSwitcher = styled.div`
 const LangSwitcher = ({ className, onNavigate }) => {
   const { languages, language, originalPath, t } = useI18next();
 
+  // Cliquer FR/EN, c'est répondre à la question que <LangHint> pose : on ne la repose
+  // plus. Sans ça, un visiteur au navigateur français qui choisit lui-même l'anglais
+  // arriverait sur /en/ et recevrait aussitôt un bandeau lui proposant le français.
+  // C'est le signal que gatsby-plugin-react-i18next donnait gratuitement, en écrivant
+  // dans le localStorage à chaque clic sur son <Link>.
+  const handleClick = () => {
+    dismissLangHint();
+    onNavigate?.();
+  };
+
   return (
     <StyledLangSwitcher className={className} aria-label={t('language.switch')}>
       {languages.map((lng, i) => (
@@ -49,7 +59,7 @@ const LangSwitcher = ({ className, onNavigate }) => {
             className={lng === language ? 'active' : ''}
             aria-current={lng === language ? 'true' : undefined}
             title={t(`language.${lng}`)}
-            onClick={onNavigate}
+            onClick={handleClick}
             data-umami-event="language-switch"
             data-umami-event-language={lng}>
             {lng.toUpperCase()}
