@@ -1,5 +1,5 @@
 # Étape 1 : Construction
-FROM node:20-alpine AS build
+FROM node:22-alpine AS build
 
 WORKDIR /app
 
@@ -19,14 +19,13 @@ RUN apk add --no-cache \
 # Copie des fichiers de dépendances
 COPY package*.json ./
 
-# Installation des dépendances avec les options nécessaires pour ce projet
-RUN npm ci --legacy-peer-deps
+# `--legacy-peer-deps` n'est plus nécessaire : depuis Gatsby 5, l'arbre de pairs
+# se résout tel quel. S'il faut le remettre un jour, c'est qu'un conflit réel est
+# apparu et qu'il vaut mieux le lire que le masquer.
+RUN npm ci
 
 # Copie du reste du projet (en excluant node_modules via .dockerignore)
 COPY . .
-
-# Configuration pour supporter l'ancien provider OpenSSL (nécessaire pour Gatsby v4 sur Node 17+)
-ENV NODE_OPTIONS=--openssl-legacy-provider
 
 # Analytics Umami : Gatsby inline les variables GATSBY_* dans les fichiers statiques
 # au moment du build, elles ne sont donc pas lisibles au démarrage du conteneur.
