@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet';
 import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { navLinks } from '@config';
@@ -243,15 +242,20 @@ const Menu = () => {
     };
   }, []);
 
+  // La Head API de Gatsby sait poser une classe sur <body>, mais au rendu de la page
+  // seulement : elle ne réagit pas à un état React. Le flou du fond suit donc
+  // `menuOpen` depuis un effet. Le nettoyage au démontage évite qu'une navigation
+  // menu ouvert laisse la classe collée au <body> — ce que Helmet faisait pour nous.
+  useEffect(() => {
+    document.body.classList.toggle('blur', menuOpen);
+    return () => document.body.classList.remove('blur');
+  }, [menuOpen]);
+
   const wrapperRef = useRef();
   useOnClickOutside(wrapperRef, () => setMenuOpen(false));
 
   return (
     <StyledMenu>
-      <Helmet>
-        <body className={menuOpen ? 'blur' : ''} />
-      </Helmet>
-
       <div ref={wrapperRef}>
         <StyledHamburgerButton
           onClick={toggleMenu}
