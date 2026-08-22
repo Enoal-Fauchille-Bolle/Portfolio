@@ -22,19 +22,17 @@ const SeoHead = ({
   const { language, languages, originalPath, defaultLanguage } = pageContext.i18n;
   const t = translationsFrom(data);
 
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            defaultTitle: title
-            siteUrl
-            defaultImage: image
-          }
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          defaultTitle: title
+          siteUrl
+          defaultImage: image
         }
       }
-    `,
-  );
+    }
+  `);
 
   const { defaultTitle, siteUrl, defaultImage } = site.siteMetadata;
 
