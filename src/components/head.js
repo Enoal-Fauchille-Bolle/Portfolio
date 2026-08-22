@@ -1,15 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Helmet, useI18next } from 'gatsby-plugin-react-i18next';
-import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
 import config from '@config';
+import { translationsFrom } from '@utils';
 
-// https://www.gatsbyjs.com/docs/add-seo-component/
-
-const Head = ({ title, description, image, noindex }) => {
-  const { pathname } = useLocation();
-  const { t } = useI18next();
+// https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
+//
+// Ce composant n'est plus rendu depuis <Layout> mais depuis le `export const Head`
+// de chaque page : la Head API de Gatsby rend le <head> dans un arbre React séparé,
+// où le contexte de `wrapPageElement` — donc celui de gatsby-plugin-react-i18next —
+// n'existe pas. Tout arrive par les props que Gatsby passe au Head : `pageContext`
+// pour la langue, `data` pour les traductions.
+const SeoHead = ({
+  pageContext,
+  data,
+  titleKey = null,
+  descriptionKey = null,
+  image = null,
+  noindex = false,
+}) => {
+  const { language, languages, originalPath, defaultLanguage } = pageContext.i18n;
+  const t = translationsFrom(data);
 
   const { site } = useStaticQuery(
     graphql`
@@ -27,14 +38,28 @@ const Head = ({ title, description, image, noindex }) => {
 
   const { defaultTitle, siteUrl, defaultImage } = site.siteMetadata;
 
+  // Reprise à l'identique du <Helmet> que gatsby-plugin-react-i18next exportait
+  // jusqu'à sa v1 : la v3 ne le fournit plus, et sans cette fonction le site perdrait
+  // ses balises canonical et hreflang. `originalPath` est le chemin sans préfixe de
+  // langue, le français étant servi sur `/` (generateDefaultLanguagePage: false).
+  const urlForLanguage = lng => {
+    const url = `${siteUrl}${lng === defaultLanguage ? '' : `/${lng}`}${originalPath}`;
+    return url.endsWith('/') ? url : `${url}/`;
+  };
+
+  const title = titleKey ? t(titleKey) : null;
+
   const seo = {
-    // Les balises sociales ne passent pas par le `titleTemplate` de Helmet, qui
-    // ne s'applique qu'à <title>. Sans cette concaténation, un partage de
-    // /archive s'annoncerait simplement « Archive », sans dire de qui.
+    // La Head API ne connaît ni `titleTemplate` ni `defaultTitle` : la concaténation
+    // que Helmet faisait pour <title> se fait ici. La même chaîne sert aux balises
+    // sociales, comme aujourd'hui — sans quoi un partage de /archive s'annoncerait
+    // simplement « Archive », sans dire de qui.
     title: title ? `${title} | ${defaultTitle}` : defaultTitle,
-    description: description || t('site.description'),
+    description: descriptionKey ? t(descriptionKey) : t('site.description'),
     image: `${siteUrl}${image || defaultImage}`,
-    url: `${siteUrl}${pathname}`,
+    // og:url doit désigner la même ressource que canonical : on réutilise la même
+    // construction plutôt que location.pathname, qui ne normalise pas le slash final.
+    url: urlForLanguage(language),
   };
 
   // Google se sert du balisage Person pour rattacher le site à une personne et
@@ -52,7 +77,16 @@ const Head = ({ title, description, image, noindex }) => {
   };
 
   return (
-    <Helmet title={title} defaultTitle={seo.title} titleTemplate={`%s | ${defaultTitle}`}>
+    <>
+      <html lang={language} />
+      <title>{seo.title}</title>
+
+      <link rel="canonical" href={seo.url} />
+      {languages.map(lng => (
+        <link rel="alternate" key={lng} href={urlForLanguage(lng)} hrefLang={lng} />
+      ))}
+      <link rel="alternate" href={urlForLanguage(defaultLanguage)} hrefLang="x-default" />
+
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
 
@@ -76,22 +110,17 @@ const Head = ({ title, description, image, noindex }) => {
       <meta name="twitter:image" content={seo.image} />
 
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
-    </Helmet>
+    </>
   );
 };
 
-export default Head;
+export default SeoHead;
 
-Head.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
+SeoHead.propTypes = {
+  pageContext: PropTypes.object.isRequired,
+  data: PropTypes.object,
+  titleKey: PropTypes.string,
+  descriptionKey: PropTypes.string,
   image: PropTypes.string,
   noindex: PropTypes.bool,
-};
-
-Head.defaultProps = {
-  title: null,
-  description: null,
-  image: null,
-  noindex: false,
 };

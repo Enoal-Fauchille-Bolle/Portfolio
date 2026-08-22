@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
 import { localizeEdges } from '@utils';
-import { Layout } from '@components';
+import { Layout, SeoHead } from '@components';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
@@ -149,7 +149,7 @@ const ArchivePage = ({ location, data }) => {
   }, []);
 
   return (
-    <Layout location={location} title={t('archive.title')} description={t('archive.subtitle')}>
+    <Layout location={location}>
       <main>
         <header ref={revealTitle}>
           <h1 className="big-heading">{t('archive.title')}</h1>
@@ -170,16 +170,8 @@ const ArchivePage = ({ location, data }) => {
             <tbody>
               {projects.length > 0 &&
                 projects.map(({ node }, i) => {
-                  const {
-                    date,
-                    github,
-                    external,
-                    ios,
-                    android,
-                    title,
-                    tech,
-                    company,
-                  } = node.frontmatter;
+                  const { date, github, external, ios, android, title, tech, company } =
+                    node.frontmatter;
                   return (
                     <tr key={i} ref={el => (revealProjects.current[i] = el)}>
                       <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
@@ -265,6 +257,10 @@ ArchivePage.propTypes = {
 };
 
 export default ArchivePage;
+
+export const Head = props => (
+  <SeoHead {...props} titleKey="archive.title" descriptionKey="archive.subtitle" />
+);
 
 export const pageQuery = graphql`
   query ArchivePageQuery($language: String!) {

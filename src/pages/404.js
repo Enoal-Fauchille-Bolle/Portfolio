@@ -5,7 +5,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { navDelay } from '@utils';
-import { Layout } from '@components';
+import { Layout, SeoHead } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledMainContainer = styled.main`
@@ -51,7 +51,7 @@ const NotFoundPage = ({ location }) => {
   );
 
   return (
-    <Layout location={location} title={t('notFound.title')} noindex>
+    <Layout location={location}>
       {prefersReducedMotion ? (
         <>{content}</>
       ) : (
@@ -72,6 +72,10 @@ NotFoundPage.propTypes = {
 };
 
 export default NotFoundPage;
+
+// `noindex` : nginx sert cette page en 200 sur son URL propre, un moteur peut donc
+// l'indexer comme une page ordinaire s'il n'est pas prévenu.
+export const Head = props => <SeoHead {...props} titleKey="notFound.title" noindex />;
 
 export const pageQuery = graphql`
   query NotFoundPageQuery($language: String!) {

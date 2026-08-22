@@ -13,7 +13,6 @@ module.exports = {
     image: '/og.png', // Path to your image you placed in the 'static' folder
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
@@ -108,8 +107,10 @@ module.exports = {
         // doit vouloir dire la même chose pour tout le monde. Le choix passe par
         // le sélecteur de langue, donc par le visiteur.
         redirect: false,
-        // Sans slash final : le Helmet du plugin concatène brut pour construire
-        // les balises canonical et hreflang.
+        // Sans slash final : `src/components/head.js` concatène brut pour
+        // construire les balises canonical et hreflang. Depuis la v3, le plugin
+        // ne les pose plus lui-même — il expose seulement cette valeur dans le
+        // contexte i18n.
         siteUrl,
         i18nextOptions: {
           interpolation: { escapeValue: false },
