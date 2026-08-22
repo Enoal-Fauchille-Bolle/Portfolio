@@ -95,3 +95,50 @@ export const translate = language => {
     return typeof value === 'string' ? value : key;
   };
 };
+
+// La langue du navigateur ne sert qu'à *suggérer* : `config.js` interdit toute
+// redirection automatique. Ces trois fonctions ne touchent à `navigator` et à
+// `localStorage` que dans leur corps — le module est aussi chargé au build, par le
+// <head>, où ni l'un ni l'autre n'existe.
+const LANG_HINT_KEY = 'lang-hint-dismissed';
+
+// Reprend le rôle de `browser-lang`, qui disparaît avec le greffon : normalise chaque
+// étiquette (`en-US` -> `en`) et renvoie la première langue du navigateur que le site
+// sait servir. `navigator.languages` est déjà classé par préférence décroissante, donc
+// la première trouvée est la bonne — `browser-lang`, lui, ne lisait que `languages[0]`
+// et ignorait le reste de la liste.
+export const detectLanguage = () => {
+  if (typeof navigator === 'undefined') {
+    return null;
+  }
+
+  const preferred = navigator.languages?.length ? navigator.languages : [navigator.language];
+
+  return (
+    preferred
+      .filter(Boolean)
+      .map(tag => tag.toLowerCase().split('-')[0])
+      .find(code => languages.includes(code)) || null
+  );
+};
+
+// Un drapeau, pas une langue. La clé ne contient rien qui permette de rediriger, elle
+// dit seulement que le visiteur a déjà tranché la question — en fermant le bandeau, en
+// l'acceptant, ou en utilisant le sélecteur.
+export const isLangHintDismissed = () => {
+  try {
+    return localStorage.getItem(LANG_HINT_KEY) === '1';
+  } catch {
+    // Stockage indisponible (navigation privée stricte) : mieux vaut afficher le
+    // bandeau et perdre la persistance que perdre la fonctionnalité.
+    return false;
+  }
+};
+
+export const dismissLangHint = () => {
+  try {
+    localStorage.setItem(LANG_HINT_KEY, '1');
+  } catch {
+    // Le bandeau reparaîtra au prochain chargement : c'est le moindre mal.
+  }
+};

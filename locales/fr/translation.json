@@ -8,6 +8,11 @@
     "fr": "Français",
     "en": "English"
   },
+  "langHint": {
+    "message": "Ce site est aussi disponible en français.",
+    "action": "Voir en français",
+    "dismiss": "Fermer la suggestion de langue"
+  },
   "nav": {
     "about": "À propos",
     "jobs": "Expérience",

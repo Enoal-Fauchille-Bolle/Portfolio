@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { useI18next } from '@i18n';
-import { Nav, Social, Email, Footer } from '@components';
+import { Nav, Social, Email, Footer, LangHint } from '@components';
 import { GlobalStyle, theme } from '@styles';
 
 const StyledContent = styled.div`
@@ -70,6 +70,13 @@ const Layout = ({ children, location }) => {
           <Email isHome={isHome} />
 
           <div id="content">
+            {/* Enfant direct de #content, et placé avant le contenu : `body.blur` floute
+                `#content > *` quand le menu mobile s'ouvre, la carte recule donc avec le
+                reste au lieu de flotter nette au-dessus. Et un visiteur qui ne lit pas la
+                langue de la page rencontre la porte de sortie tôt dans l'ordre de
+                tabulation, pas après la page entière. */}
+            <LangHint />
+
             {children}
             <Footer />
           </div>
