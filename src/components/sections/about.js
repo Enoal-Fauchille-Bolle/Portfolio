@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
+import { Trans } from 'react-i18next';
+import { useI18next } from '@i18n';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';

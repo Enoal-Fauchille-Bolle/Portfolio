@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Link, useI18next } from 'gatsby-plugin-react-i18next';
+import { Link, useI18next } from '@i18n';
 
 const StyledLangSwitcher = styled.div`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -34,7 +34,7 @@ const StyledLangSwitcher = styled.div`
 
 // `originalPath` est le chemin débarrassé du préfixe de langue : on reste donc sur
 // la même page en changeant de langue (/archive -> /en/archive), au lieu de
-// retomber sur l'accueil. Le Link du plugin construit le préfixe tout seul.
+// retomber sur l'accueil. Le Link de @i18n construit le préfixe tout seul.
 const LangSwitcher = ({ className, onNavigate }) => {
   const { languages, language, originalPath, t } = useI18next();
 

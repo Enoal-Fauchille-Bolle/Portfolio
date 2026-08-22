@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+import { useI18next } from '@i18n';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
@@ -263,16 +263,7 @@ export const Head = props => (
 );
 
 export const pageQuery = graphql`
-  query ArchivePageQuery($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
+  query ArchivePageQuery {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/projects/" } }
       sort: { frontmatter: { date: DESC } }

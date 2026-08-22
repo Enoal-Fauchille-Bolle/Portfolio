@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+import { useI18next } from '@i18n';
 import { Icon } from '@components/icons';
 import { socialMedia } from '@config';
 

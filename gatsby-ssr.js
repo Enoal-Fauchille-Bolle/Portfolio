@@ -6,6 +6,10 @@
 
 import React from 'react';
 
+// Le provider i18n doit être posé à l'identique côté SSR et côté navigateur, sans
+// quoi l'hydratation divergerait du HTML rendu.
+export { wrapPageElement } from './src/i18n/wrapPageElement';
+
 // Umami analytics — self-hosted, cookieless, no consent banner needed.
 //
 // The tracker is served first-party from this site's own origin (/s.js for the

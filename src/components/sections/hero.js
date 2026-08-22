@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
+import { Trans } from 'react-i18next';
+import { useI18next } from '@i18n';
 import styled from 'styled-components';
 import { navDelay, revealDelay } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';

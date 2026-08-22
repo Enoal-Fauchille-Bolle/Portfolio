@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useI18next } from 'gatsby-plugin-react-i18next';
+import { Link, useI18next } from '@i18n';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled, { css } from 'styled-components';

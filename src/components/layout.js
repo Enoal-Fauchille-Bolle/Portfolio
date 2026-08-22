@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+import { useI18next } from '@i18n';
 import { Nav, Social, Email, Footer } from '@components';
 import { GlobalStyle, theme } from '@styles';
 

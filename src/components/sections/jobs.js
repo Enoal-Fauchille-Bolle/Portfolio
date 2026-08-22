@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+import { useI18next } from '@i18n';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import { KEY_CODES, localizeEdges } from '@utils';

@@ -1,7 +1,8 @@
 const config = require('./src/config');
 
-// Une seule source de vérité : siteMetadata, les balises canonical/hreflang du
-// plugin i18n et robots.txt doivent annoncer exactement la même origine.
+// Une seule source de vérité : siteMetadata, les balises canonical/hreflang que
+// construit src/components/head.js et robots.txt doivent annoncer exactement la
+// même origine.
 const siteUrl = 'https://enoal.fr'; // Pas de slash final
 
 module.exports = {
@@ -85,36 +86,6 @@ module.exports = {
       options: {
         name: 'content',
         path: `${__dirname}/content/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `locale`,
-        path: `${__dirname}/locales`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-react-i18next`,
-      options: {
-        localeJsonSourceName: `locale`,
-        languages: [`fr`, `en`],
-        defaultLanguage: `fr`,
-        // Le français reste servi sur `/` sans préfixe ; seul l'anglais est routé
-        // sous `/en/`. `/fr` est traité par une redirection 301 dans nginx.
-        generateDefaultLanguagePage: false,
-        // Aucune redirection automatique sur la langue du navigateur : `enoal.fr`
-        // doit vouloir dire la même chose pour tout le monde. Le choix passe par
-        // le sélecteur de langue, donc par le visiteur.
-        redirect: false,
-        // Sans slash final : `src/components/head.js` concatène brut pour
-        // construire les balises canonical et hreflang. Depuis la v3, le plugin
-        // ne les pose plus lui-même — il expose seulement cette valeur dans le
-        // contexte i18n.
-        siteUrl,
-        i18nextOptions: {
-          interpolation: { escapeValue: false },
-        },
       },
     },
     {

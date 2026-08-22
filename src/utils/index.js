@@ -58,28 +58,3 @@ export const localizeEdges = (edges, language) => {
     .filter(({ node }) => !TRANSLATION_SUFFIX.test(filePath(node)))
     .map(edge => translations.get(`${language}:${filePath(edge.node)}`) || edge);
 };
-
-// Les balises du <head> sont rendues par la Head API de Gatsby, dans un arbre React
-// distinct de celui de la page. Le provider posé par gatsby-plugin-react-i18next
-// vit dans `wrapPageElement`, qui n'est pas dans cet arbre : `useI18next()` y est
-// donc inutilisable, et le plugin n'exporte plus de `Helmet` depuis sa v3.
-//
-// Les traductions arrivent malgré tout jusqu'au <Head> : chaque page déclare déjà
-// une requête `locales`, dont le résultat est passé au Head sous `data`. On relit
-// le JSON directement, sans instancier i18next pour une poignée de clés.
-//
-// Comme `t()`, la fonction renvoyée rend la clé elle-même quand la traduction
-// manque : une balise qui afficherait `site.description` saute aux yeux lors de la
-// vérification du HTML généré.
-export const translationsFrom = (data, ns = 'translation') => {
-  const edges = data?.locales?.edges || [];
-  const edge = edges.find(({ node }) => node.ns === ns) || edges[0];
-  // `node.data` arrive en chaîne JSON, sauf si le typage GraphQL l'a déjà résolu.
-  const node = edge?.node;
-  const parsed = node ? (typeof node.data === 'object' ? node.data : JSON.parse(node.data)) : {};
-
-  return key => {
-    const value = key.split('.').reduce((branch, part) => branch?.[part], parsed);
-    return typeof value === 'string' ? value : key;
-  };
-};

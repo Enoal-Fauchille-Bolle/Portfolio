@@ -2,25 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import config from '@config';
-import { translationsFrom } from '@utils';
+import { translate } from '@i18n';
 
 // https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
 //
 // Ce composant n'est plus rendu depuis <Layout> mais depuis le `export const Head`
 // de chaque page : la Head API de Gatsby rend le <head> dans un arbre React séparé,
-// où le contexte de `wrapPageElement` — donc celui de gatsby-plugin-react-i18next —
-// n'existe pas. Tout arrive par les props que Gatsby passe au Head : `pageContext`
-// pour la langue, `data` pour les traductions.
+// où le contexte posé par `wrapPageElement` n'existe pas — useI18next() y est donc
+// inutilisable. La langue arrive par `pageContext`, que Gatsby passe au Head, et les
+// traductions par translate(), qui lit le JSON sans passer par aucun contexte.
 const SeoHead = ({
   pageContext,
-  data,
   titleKey = null,
   descriptionKey = null,
   image = null,
   noindex = false,
 }) => {
   const { language, languages, originalPath, defaultLanguage } = pageContext.i18n;
-  const t = translationsFrom(data);
+  const t = translate(language);
 
   const { site } = useStaticQuery(graphql`
     query {
@@ -36,10 +35,10 @@ const SeoHead = ({
 
   const { defaultTitle, siteUrl, defaultImage } = site.siteMetadata;
 
-  // Reprise à l'identique du <Helmet> que gatsby-plugin-react-i18next exportait
-  // jusqu'à sa v1 : la v3 ne le fournit plus, et sans cette fonction le site perdrait
-  // ses balises canonical et hreflang. `originalPath` est le chemin sans préfixe de
-  // langue, le français étant servi sur `/` (generateDefaultLanguagePage: false).
+  // Reprise à l'identique du <Helmet> que gatsby-plugin-react-i18next exportait jusqu'à
+  // sa v1 : sans cette fonction le site perdrait ses balises canonical et hreflang.
+  // `originalPath` est le chemin sans préfixe de langue, posé par onCreatePage, le
+  // français étant servi sur `/`.
   const urlForLanguage = lng => {
     const url = `${siteUrl}${lng === defaultLanguage ? '' : `/${lng}`}${originalPath}`;
     return url.endsWith('/') ? url : `${url}/`;
@@ -116,7 +115,6 @@ export default SeoHead;
 
 SeoHead.propTypes = {
   pageContext: PropTypes.object.isRequired,
-  data: PropTypes.object,
   titleKey: PropTypes.string,
   descriptionKey: PropTypes.string,
   image: PropTypes.string,
