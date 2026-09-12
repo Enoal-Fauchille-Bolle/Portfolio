@@ -1,1 +1,14 @@
+# Secret scan first, so a leaked key stops the commit before lint-staged rewrites
+# anything. Warns instead of failing when betterleaks is missing: a missing tool
+# must not block a correct commit. See the README for installing it.
+echo "Scanning for secrets..."
+if command -v betterleaks >/dev/null 2>&1; then
+  if ! betterleaks git . --pre-commit --staged --no-banner --redact --verbose --log-level warn; then
+    echo "Secret detected. Remove it from the staged changes (see the README for false positives)."
+    exit 1
+  fi
+else
+  echo "betterleaks not installed, skipping the secret scan (see the README)."
+fi
+
 npm run lint-staged

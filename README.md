@@ -53,7 +53,20 @@ Yes, you can fork this repo. Please give me proper credit by linking back to [br
    yarn
    ```
 
-4. Start the development server
+4. Install [Betterleaks](https://github.com/betterleaks/betterleaks), used by the pre-commit hook to scan the staged changes for secrets (without it, the hook prints a warning and skips the scan)
+
+   ```sh
+   brew install betterleaks        # macOS, Linux
+   sudo dnf install betterleaks    # Fedora
+   ```
+
+   On Windows, download `betterleaks_<version>_windows_x64.zip` from the [releases](https://github.com/betterleaks/betterleaks/releases) and put `betterleaks.exe` on the `PATH`. If the scan flags something that is not a secret, end that line with a `betterleaks:allow` comment:
+
+   ```js
+   const example = 'not-a-real-key'; // betterleaks:allow
+   ```
+
+5. Start the development server
 
    ```sh
    npm start
