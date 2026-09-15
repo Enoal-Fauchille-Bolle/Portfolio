@@ -139,6 +139,7 @@ const About = () => {
     'Rust',
     'C/C++',
     'Git',
+    'Linux',
     'Docker',
     'Kubernetes',
     'Ansible',
