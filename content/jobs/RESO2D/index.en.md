@@ -11,3 +11,4 @@ url: 'https://greenmyevent.fr/fr/home/about'
 - Participation in awareness initiatives around sustainable digital practices
 - Editing of educational videos on Green IT best practices
 - Collaboration with a team committed to a more sustainable digital sector
+- Alignment with the 17 Sustainable Development Goals

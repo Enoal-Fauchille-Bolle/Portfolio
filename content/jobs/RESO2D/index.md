@@ -11,3 +11,4 @@ url: 'https://greenmyevent.fr/fr/home/about'
 - Participation à des initiatives de sensibilisation au numérique responsable
 - Montage vidéos éducatives sur les bonnes pratiques en Green IT
 - Collaboration avec une équipe engagée pour un numérique plus durable
+- Utilisation des 17 objectifs de développement durable
