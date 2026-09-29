@@ -1,7 +1,7 @@
 ---
 date: '2025-09-15'
 title: 'Full-stack Developer Intern'
-company: 'Revolte E-garages'
+company: 'Revolte E-garages (2025)'
 location: 'Carquefou, France'
 range: 'September 2025 - February 2026'
 url: 'https://revolte.club/'

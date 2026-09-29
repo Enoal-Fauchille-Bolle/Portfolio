@@ -1,7 +1,7 @@
 ---
 date: '2025-09-15'
 title: 'Stage Développeur Full-stack'
-company: 'Revolte E-garages'
+company: 'Revolte E-garages (2025)'
 location: 'Carquefou, France'
 range: 'Septembre 2025 - Février 2026'
 url: 'https://revolte.club/'
