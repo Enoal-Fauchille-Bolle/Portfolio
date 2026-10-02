@@ -1,5 +1,5 @@
 ---
-date: '2026-08-17'
+date: '2026-09-23'
 title: 'Dotfiles'
 company: 'Personal'
 github: 'https://github.com/Enoal-Fauchille-Bolle/Dotfiles'

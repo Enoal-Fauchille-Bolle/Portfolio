@@ -1,5 +1,5 @@
 ---
-date: '2026-03-30'
+date: '2026-09-30'
 title: 'CV Auto-hébergé'
 company: 'Personnel'
 github: 'https://github.com/Enoal-Fauchille-Bolle/CV'

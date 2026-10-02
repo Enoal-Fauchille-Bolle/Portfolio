@@ -1,5 +1,5 @@
 ---
-date: '2026-08-18'
+date: '2026-09-12'
 title: 'Skylode'
 company: 'Personal'
 github: 'https://github.com/Enoal-Fauchille-Bolle/Skylode'

@@ -1,5 +1,5 @@
 ---
-date: '2026-08-20'
+date: '2026-09-29'
 title: 'Portfolio'
 company: 'Personnel'
 github: 'https://github.com/Enoal-Fauchille-Bolle/Portfolio'

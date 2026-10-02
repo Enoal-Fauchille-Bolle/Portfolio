@@ -1,5 +1,5 @@
 ---
-date: '2025-05-14'
+date: '2026-09-12'
 title: 'Astra Setup'
 company: 'Personal'
 github: 'https://github.com/Enoal-Fauchille-Bolle/Astra-Setup'
