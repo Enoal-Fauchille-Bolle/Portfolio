@@ -13,6 +13,7 @@ tech:
   - Redis
   - PostgreSQL
   - Node.js
+  - Linux
 showInProjects: true
 ---
 

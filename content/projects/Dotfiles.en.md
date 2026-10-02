@@ -11,6 +11,8 @@ tech:
   - Python
   - GNU Stow
   - Zsh
+  - Linux
+  - Ansible
 showInProjects: true
 ---
 

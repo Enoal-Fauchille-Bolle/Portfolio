@@ -8,9 +8,12 @@ ios: ''
 android: ''
 tech:
   - TypeScript
+  - React
+  - NestJS
   - Dart
   - Docker
   - PostgreSQL
+  - Git
 showInProjects: false
 ---
 

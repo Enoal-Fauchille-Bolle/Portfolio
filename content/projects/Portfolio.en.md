@@ -12,6 +12,7 @@ tech:
   - styled-components
   - GraphQL
   - Docker
+  - Git
 showInProjects: true
 ---
 

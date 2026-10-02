@@ -11,6 +11,7 @@ tech:
   - Nginx
   - GitHub Actions
   - GHCR
+  - Git
 showInProjects: true
 ---
 

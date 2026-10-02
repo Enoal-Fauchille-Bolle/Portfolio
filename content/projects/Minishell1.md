@@ -9,6 +9,7 @@ android: ''
 tech:
   - C
   - Makefile
+  - Linux
 showInProjects: true
 ---
 

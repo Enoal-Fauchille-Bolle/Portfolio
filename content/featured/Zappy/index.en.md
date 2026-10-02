@@ -12,6 +12,7 @@ tech:
   - Python
   - Network Programming
   - AI
+  - Linux
 ---
 
 Networked multiplayer (client-server) game of resource management and AI strategy. The project comprises a robust C server handling multiple connections, a GUI client written in C++, and several AI clients in Python. Complete network architecture built on a custom protocol.

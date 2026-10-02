@@ -11,6 +11,7 @@ tech:
   - C++
   - Python
   - Makefile
+  - Linux
 showInProjects: false
 ---
 

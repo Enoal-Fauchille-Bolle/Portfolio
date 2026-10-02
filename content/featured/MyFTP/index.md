@@ -12,6 +12,7 @@ tech:
   - Network Programming
   - RFC 959
   - Multi-threading
+  - Linux
 ---
 
 Serveur FTP léger et conforme à la RFC 959. Implémente l'authentification utilisateur, les modes actif et passif, et la gestion multi-client via des sockets Unix. Projet réseau bas niveau démontrant une maîtrise des protocoles standards et de la programmation système. En bonus, un client FTP simple est également inclus pour tester les fonctionnalités du serveur.

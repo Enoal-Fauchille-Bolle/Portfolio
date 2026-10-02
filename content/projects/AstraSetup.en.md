@@ -10,6 +10,7 @@ tech:
   - Ansible
   - Shell
   - Jinja
+  - Linux
 showInProjects: true
 ---
 

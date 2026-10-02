@@ -17,6 +17,8 @@ tech:
   - Nginx
   - Cloudflare
   - Renovate
+  - Linux
+  - Git
 ---
 
 Self-hosted personal homelab infrastructure running on Proxmox VE, orchestrated with K3s and deployed GitOps-style through ArgoCD. Hosts 30+ services (Immich, Vaultwarden, n8n, SFTPGo…) on a two-layer architecture (Docker Compose + Kubernetes), with a multi-layer backup pipeline to the cloud, a two-tier SSL reverse proxy (NPM + Traefik), and fully automated dependency updates via Renovate.

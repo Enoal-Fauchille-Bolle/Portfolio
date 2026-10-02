@@ -11,6 +11,7 @@ tech:
   - Ratatui
   - Cargo
   - GitHub Actions
+  - Git
 showInProjects: false
 ---
 

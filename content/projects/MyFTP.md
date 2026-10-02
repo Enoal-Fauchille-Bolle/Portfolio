@@ -10,6 +10,7 @@ tech:
   - C
   - Shell
   - Makefile
+  - Linux
 showInProjects: false
 ---
 

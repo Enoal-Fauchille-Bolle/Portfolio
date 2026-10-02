@@ -17,6 +17,8 @@ tech:
   - Nginx
   - Cloudflare
   - Renovate
+  - Linux
+  - Git
 showInProjects: false
 ---
 

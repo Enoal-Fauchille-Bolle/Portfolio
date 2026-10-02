@@ -12,6 +12,7 @@ tech:
   - NestJS
   - PostgreSQL
   - Docker
+  - Git
 ---
 
 Une plateforme d'automatisation de type IFTTT/Zapier développée en équipe. AREA permet de connecter différents services via API REST et propose des clients web et mobile pour configurer des automatisations personnalisées. Architecture microservices conteneurisée avec Docker et base de données PostgreSQL.

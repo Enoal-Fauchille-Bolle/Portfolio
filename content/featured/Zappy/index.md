@@ -12,6 +12,7 @@ tech:
   - Python
   - Network Programming
   - AI
+  - Linux
 ---
 
 Jeu multijoueur en réseau (client-serveur) de gestion de ressources et stratégie IA. Le projet comprend un serveur robuste en C gérant les connexions multiples, un client GUI développé en C++, et plusieurs clients IA en Python. Architecture réseau complète avec protocole personnalisé.

@@ -12,6 +12,7 @@ tech:
   - Network Programming
   - RFC 959
   - Multi-threading
+  - Linux
 ---
 
 Lightweight FTP server compliant with RFC 959. Implements user authentication, active and passive modes, and multi-client handling through Unix sockets. A low-level networking project demonstrating command of standard protocols and systems programming. A simple FTP client is bundled as a bonus to exercise the server's features.
