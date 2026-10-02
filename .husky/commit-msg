@@ -1,0 +1,39 @@
+# Conventional Commits, as `cliff.toml` expects to parse them for the Release
+# notes: `type(scope)!: subject`, one line, lowercase first word, no trailing
+# period. A message that does not parse would silently vanish from the notes.
+TYPES="feat|fix|perf|refactor|docs|style|test|build|ci|chore"
+
+# The message as git will keep it: without comments, blank lines, or the diff
+# `git commit -v` appends below its scissors line.
+message="$(sed '/^# -* >8 -*$/,$d' "$1" | grep -v '^#' | tr -d '\r' | grep -v '^[[:space:]]*$')"
+subject="$(printf '%s\n' "$message" | head -n 1)"
+[ -z "$subject" ] && exit 0
+
+# Messages git writes itself never follow the convention.
+if [ -f "$(git rev-parse --git-dir)/MERGE_HEAD" ]; then
+  exit 0
+fi
+case "$subject" in
+  "Merge "* | "Revert "* | "fixup! "* | "squash! "* | "amend! "*) exit 0 ;;
+esac
+
+fail() {
+  echo "commit-msg: $1"
+  echo "  got: $subject"
+  exit 1
+}
+
+printf '%s' "$subject" | grep -Eq "^($TYPES)(\([a-z0-9][a-z0-9-]*\))?!?: [^ ]" ||
+  fail "expected 'type(scope): subject', with type in $TYPES"
+
+description="${subject#*: }"
+printf '%s' "${description%% *}" | grep -q '[A-Z]' &&
+  fail "the subject must start with a lowercase word"
+printf '%s' "$description" | grep -Eq '\.$' &&
+  fail "the subject must not end with a period"
+
+# One line only: anything after the subject, comments aside, is a body.
+lines="$(printf '%s\n' "$message" | wc -l)"
+[ "$lines" -gt 1 ] && fail "the message must be a single line, without a body"
+
+exit 0
