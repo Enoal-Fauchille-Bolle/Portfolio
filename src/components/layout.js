@@ -42,8 +42,16 @@ const Layout = ({ children, location }) => {
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) {
-          el.scrollIntoView();
-          el.focus();
+          // Une cible peut demander à être centrée (`data-scroll-block="center"`), comme
+          // les technos d'About : le navigateur, lui, l'aurait collée en haut de l'écran.
+          el.scrollIntoView({ block: el.dataset.scrollBlock || 'start' });
+          // Le focus sert au clavier et aux lecteurs d'écran, mais personne n'a encore
+          // appuyé sur une touche : on cache son cadre jusqu'à la première touche.
+          el.dataset.silentFocus = '';
+          const showFocus = () => delete el.dataset.silentFocus;
+          el.addEventListener('blur', showFocus, { once: true });
+          el.addEventListener('keydown', showFocus, { once: true });
+          el.focus({ preventScroll: true });
         }
       }, 0);
     }

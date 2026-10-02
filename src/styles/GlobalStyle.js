@@ -49,6 +49,11 @@ const GlobalStyle = createGlobalStyle`
     outline-offset: 3px;
   }
 
+  /* Focus donné par layout.js en arrivant par une ancre, avant toute touche. */
+  [data-silent-focus]:focus {
+    outline: none;
+  }
+
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
