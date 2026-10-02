@@ -18,6 +18,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # The whole history: git-cliff reads it to write the Release notes.
+          fetch-depth: 0
 
       - name: Set image name and version
         run: |
@@ -45,9 +48,23 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
+      # `--current` writes the notes for the checked-out tag alone, from the
+      # previous `vX.Y.Z`. No `GITHUB_REPO`: it would switch on git-cliff's
+      # GitHub integration, which calls the API unauthenticated for nothing the
+      # template uses.
+      - name: Write the Release notes
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+          args: --current --strip all
+        env:
+          OUTPUT: RELEASE_NOTES.md
+
+      # Not `generate_release_notes`: GitHub builds those from merged pull
+      # requests, and commits land on `main` directly.
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref_name }}
           name: ${{ github.ref_name }}
-          generate_release_notes: true
+          body_path: RELEASE_NOTES.md
