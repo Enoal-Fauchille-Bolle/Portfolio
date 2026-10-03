@@ -62,8 +62,10 @@ const Contact = () => {
 
       <h2 className="title">{t('contact.heading')}</h2>
 
+      {/* <strong> fait partie de transKeepBasicHtmlNodesFor : la balise est
+          conservée telle quelle depuis la traduction, sans composant à fournir. */}
       <p>
-        <Trans i18nKey="contact.body" components={{ stage: <strong /> }} />
+        <Trans i18nKey="contact.body" />
       </p>
 
       <a
