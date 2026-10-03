@@ -12,8 +12,7 @@
 > (French / English) static site built with Gatsby, containerized behind Nginx,
 > released to GHCR on every tag and deployed on my K3s homelab.
 
-Based on [Brittany Chiang's v4](https://github.com/bchiang7/v4), see
-[Credits](#-credits).
+Based on [Brittany Chiang's v4](https://github.com/bchiang7/v4), see [Credits](#-credits).
 
 ![Screenshot of the home page](./src/images/demo.png)
 
