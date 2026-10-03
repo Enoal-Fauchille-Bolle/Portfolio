@@ -42,6 +42,10 @@ const StyledHeroSection = styled.section`
     max-width: 540px;
   }
 
+  .internship strong {
+    color: var(--lightest-slate);
+  }
+
   .email-link {
     ${({ theme }) => theme.mixins.bigButton};
     margin-top: 50px;
@@ -65,8 +69,9 @@ const Hero = () => {
   const one = <h1>{t('hero.greeting')}</h1>;
   const two = <h2 className="big-heading">Enoal Fauchille--Bolle.</h2>;
   const three = <h3 className="medium-heading">{t('hero.tagline')}</h3>;
-  // Trans garde le lien dans le flux de la phrase : la traduction porte les balises
-  // <ruc>…</ruc> et <stage>…</stage>, et le JSX fournit les éléments et leur style.
+  // Trans garde les liens dans le flux de la phrase : la traduction porte les balises
+  // <ruc>…</ruc> et <epitech>…</epitech>, et le JSX fournit les <a> avec leurs
+  // attributs de suivi. <strong> est conservé tel quel depuis la traduction.
   const four = (
     <>
       <p>
@@ -84,7 +89,27 @@ const Hero = () => {
                 Roskilde University
               </a>
             ),
-            stage: <strong style={{ color: 'var(--green)' }} />,
+          }}
+        />
+      </p>
+      {/* Le lien est dans le <strong>, hors de portée de la règle p > a :
+          la classe inline-link lui redonne le style des liens du texte. */}
+      <p className="internship">
+        <Trans
+          i18nKey="hero.internship"
+          components={{
+            epitech: (
+              <a
+                className="inline-link"
+                href="https://www.epitech.eu/recruter-etudiant-stage-alternance/"
+                target="_blank"
+                rel="noreferrer"
+                data-umami-event="outbound-click"
+                data-umami-event-destination="epitech-internships"
+                data-umami-event-source="hero">
+                stage de fin d'études
+              </a>
+            ),
           }}
         />
       </p>
