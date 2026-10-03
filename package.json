@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
+  "private": true,
   "description": "Portfolio personnel d’Enoal Fauchille--Bolle",
-  "version": "1.0.0",
   "author": "Enoal Fauchille-Bolle <contact@enoal.fr>",
   "repository": {
     "type": "git",
