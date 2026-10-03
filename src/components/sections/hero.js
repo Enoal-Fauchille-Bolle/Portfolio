@@ -65,8 +65,8 @@ const Hero = () => {
   const one = <h1>{t('hero.greeting')}</h1>;
   const two = <h2 className="big-heading">Enoal Fauchille--Bolle.</h2>;
   const three = <h3 className="medium-heading">{t('hero.tagline')}</h3>;
-  // Trans garde le lien dans le flux de la phrase : la traduction porte la balise
-  // <ruc>…</ruc> et le JSX fournit le <a> avec ses attributs de suivi intacts.
+  // Trans garde le lien dans le flux de la phrase : la traduction porte les balises
+  // <ruc>…</ruc> et <stage>…</stage>, et le JSX fournit les éléments et leur style.
   const four = (
     <>
       <p>
@@ -84,6 +84,7 @@ const Hero = () => {
                 Roskilde University
               </a>
             ),
+            stage: <strong style={{ color: 'var(--green)' }} />,
           }}
         />
       </p>

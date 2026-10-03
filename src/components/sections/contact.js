@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { Trans } from 'react-i18next';
 import { useI18next } from '@i18n';
 import { srConfig, email } from '@config';
 import sr from '@utils/sr';
@@ -61,7 +62,9 @@ const Contact = () => {
 
       <h2 className="title">{t('contact.heading')}</h2>
 
-      <p>{t('contact.body')}</p>
+      <p>
+        <Trans i18nKey="contact.body" components={{ stage: <strong /> }} />
+      </p>
 
       <a
         className="email-link"

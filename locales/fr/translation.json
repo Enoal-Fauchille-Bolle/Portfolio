@@ -28,7 +28,7 @@
   "hero": {
     "greeting": "Bonjour, je suis",
     "tagline": "Développeur Full-stack, DevOps et Logiciel.",
-    "intro": "Étudiant en 4ème année à Epitech Nantes, actuellement en échange à <ruc>Roskilde University</ruc> au Danemark, je conçois des solutions web, DevOps et logicielles robustes.",
+    "intro": "Étudiant en 4ème année à Epitech Nantes, actuellement en échange à <ruc>Roskilde University</ruc> au Danemark, je conçois des solutions web, DevOps et logicielles robustes. <stage>Je cherche un stage de fin d'études de septembre 2027 à août 2028 : temps partiel jusqu'en février, puis temps plein.</stage>",
     "cta": "Contactez-moi"
   },
   "about": {
@@ -64,7 +64,7 @@
   "contact": {
     "overline": "Et maintenant ?",
     "heading": "Contactez-moi",
-    "body": "Je serai en recherche de stage pour ma 5ème année à partir de septembre 2027.",
+    "body": "<stage>Je cherche un stage de fin d'études de septembre 2027 à août 2028 : temps partiel jusqu'en février, puis temps plein.</stage> N'hésitez pas à me contacter si vous avez une opportunité ou une question.",
     "cta": "Écrivez-moi"
   },
   "archive": {

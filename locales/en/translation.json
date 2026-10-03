@@ -28,7 +28,7 @@
   "hero": {
     "greeting": "Hi, my name is",
     "tagline": "Full-stack, DevOps and Software Developer.",
-    "intro": "A fourth-year student at Epitech Nantes, currently on exchange at <ruc>Roskilde University</ruc> in Denmark, I build robust web, DevOps and software solutions.",
+    "intro": "A fourth-year student at Epitech Nantes, currently on exchange at <ruc>Roskilde University</ruc> in Denmark, I build robust web, DevOps and software solutions. <stage>Looking for a final-year internship from September 2027 to August 2028: part-time until February, then full-time.</stage>",
     "cta": "Get in touch"
   },
   "about": {
@@ -64,7 +64,7 @@
   "contact": {
     "overline": "What's Next?",
     "heading": "Get In Touch",
-    "body": "I will be looking for a fifth-year internship starting in September 2027.",
+    "body": "<stage>Looking for a final-year internship from September 2027 to August 2028: part-time until February, then full-time.</stage> Feel free to reach out if you have an opportunity or a question.",
     "cta": "Say Hello"
   },
   "archive": {
